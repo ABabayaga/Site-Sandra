@@ -3,8 +3,8 @@ const conexoes = [
         nome: 'GUSTAVO SOARES',
         cargo: 'Empresário',
         imagem: '/gus4.jpeg',
-        texto1: `Algumas conexões não começam com um plano, começam com o tempo. Gustavo acompanha a trajetória de Sandra há mais de duas décadas. Ao longo desse caminho, o que se construiu foi além de momentos pontuais: uma relação atravessada por ciclos pessoais e profissionais, marcada por proximidade, confiança e uma admiração que se manteve constante.\n\nEntre encontros e recomeços, existe uma presença que nunca deixou de existir — aquela que não precisa ser anunciada, mas que se revela nas escolhas, nas decisões e no apoio silencioso.`,
-        texto2: `Hoje, sua participação se traduz em visão, suporte e sensibilidade para reconhecer o valor de uma obra antes mesmo dela estar pronta. Existe um olhar atento para o que ainda está em processo, uma capacidade de enxergar potência onde muitos ainda veem apenas início.\n\nMais do que um investidor, Gustavo integra a estrutura invisível que sustenta o que se torna visível — alguém que compreende que a arte não nasce apenas do gesto criativo, mas também do ambiente que permite que ela exista.`,
+        texto1: `Algumas conexões não começam com um plano, começam com o tempo. Gustavo Soares acompanha a trajetória de Sandra há mais de duas décadas. Ao longo desse caminho, o que se construiu foi além de momentos pontuais: uma relação atravessada por ciclos pessoais e profissionais, marcada por proximidade, confiança e uma admiração que se manteve constante.\n\nEntre encontros e recomeços, existe uma presença que nunca deixou de existir — aquela que não precisa ser anunciada, mas que se revela nas escolhas, nas decisões e no apoio silencioso.`,
+        texto2: `Hoje, sua participação se traduz em visão, suporte e sensibilidade para reconhecer o valor de uma obra antes mesmo dela estar pronta. Existe um olhar atento para o que ainda está em processo, uma capacidade de enxergar potência onde muitos ainda veem apenas início.\n\nMais do que um investidor, Gustavo Soares integra a estrutura invisível que sustenta o que se torna visível — alguém que compreende que a arte não nasce apenas do gesto criativo, mas também do ambiente que permite que ela exista.`,
     },
     {
         nome: 'Deise Rigon',
@@ -39,7 +39,7 @@ export default function Conexoes() {
                                     alt={c.nome}
                                     className="w-full h-full object-contain rounded-xl"
                                 />
-                                <div className="absolute right-0 bottom-0 left-0 bg-white/80 px-4 py-3 backdrop-blur-sm sm:px-5 sm:py-4">
+                                <div className="absolute right-0 bottom-0 left-0 bg-white px-4 py-3 sm:px-5 sm:py-4">
                                     <p className="text-base leading-tight font-semibold text-[#08284E] sm:text-lg">{c.nome}</p>
                                 </div>
                             </div>
