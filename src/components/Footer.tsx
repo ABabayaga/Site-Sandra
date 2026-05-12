@@ -18,12 +18,12 @@ export default function Footer() {
                         <div>
                             <p className="text-white text-base font-semibold mb-2">Contato</p>
                             <p className="text-[11px] uppercase tracking-[0.18em] text-white/60 sm:text-xs sm:tracking-widest">
-                                R. Snipe Calarge, 280 – Campo Grande – MS
+                                R. Spipe Calarge, 280 – Campo Grande – MS
                             </p>
                         </div>
 
                         <a
-                            href="https://www.instagram.com"
+                            href="https://www.instagram.com/galeriasandranovas/"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center gap-2 text-white/60 hover:text-[#C9A96E] transition-colors w-fit"
@@ -38,7 +38,7 @@ export default function Footer() {
                                 Segunda a Sexta-feira
                             </p>
                             <p className="text-[11px] uppercase tracking-[0.18em] text-white/60 sm:text-xs sm:tracking-widest">
-                                11h às 18h
+                                10h às 19h
                             </p>
                         </div>
                     </div>
