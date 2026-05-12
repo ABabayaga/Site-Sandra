@@ -70,9 +70,9 @@ export default function Carrosel() {
       <button
         type="button"
         onClick={() => go(-1)}
-        className="absolute left-0 top-0 z-10 h-full w-12 flex items-center justify-center cursor-pointer group focus:outline-none"
+        className="absolute left-1 top-0 z-10 flex h-full w-10 items-center justify-center cursor-pointer group focus:outline-none sm:left-0 sm:w-12"
       >
-        <span className="inline-flex items-center justify-center size-9 rounded-full bg-white shadow group-hover:shadow-md transition-all">
+          <span className="inline-flex size-8 items-center justify-center rounded-full bg-white shadow transition-all group-hover:shadow-md sm:size-9">
           <svg className="size-5 text-gray-700" viewBox="0 0 24 24" fill="none">
             <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="m15 19-7-7 7-7" />
           </svg>
@@ -81,7 +81,7 @@ export default function Carrosel() {
       </button>
 
       {/* Track viewport — mx-12 keeps cards clear of the arrow buttons */}
-      <div className="overflow-hidden mx-12 py-6"
+      <div className="mx-10 overflow-hidden py-4 sm:mx-12 sm:py-6"
       >
         <div
           ref={trackRef}
@@ -90,11 +90,11 @@ export default function Carrosel() {
           style={{ width: `${(N * 100) / 3}%` }}
         >
           {ITEMS.map((item, i) => (
-            <div key={i} style={{ width: `${100 / N}%` }} className="px-2">
+            <div key={i} style={{ width: `${100 / N}%` }} className="px-1.5 sm:px-2">
               <img
                 src={item.image}
                 alt={item.text}
-                className="w-full h-56 object-cover rounded-2xl"
+                className="h-44 w-full rounded-2xl object-cover sm:h-56"
               />
             </div>
           ))}
@@ -105,9 +105,9 @@ export default function Carrosel() {
       <button
         type="button"
         onClick={() => go(1)}
-        className="absolute right-0 top-0 z-10 h-full w-12 flex items-center justify-center cursor-pointer group focus:outline-none"
+        className="absolute right-1 top-0 z-10 flex h-full w-10 items-center justify-center cursor-pointer group focus:outline-none sm:right-0 sm:w-12"
       >
-        <span className="inline-flex items-center justify-center size-9 rounded-full bg-white shadow group-hover:shadow-md transition-all">
+          <span className="inline-flex size-8 items-center justify-center rounded-full bg-white shadow transition-all group-hover:shadow-md sm:size-9">
           <svg className="size-5 text-gray-700" viewBox="0 0 24 24" fill="none">
             <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="m9 5 7 7-7 7" />
           </svg>

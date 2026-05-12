@@ -41,19 +41,19 @@ const obras = [
 
 function CardObra({ serie, titulo, dimensoes, imagem }: typeof obras[0]) {
     return (
-        <div className="relative rounded-2xl overflow-hidden shadow-sm group cursor-pointer">
+        <div className="group relative overflow-hidden rounded-2xl shadow-sm cursor-pointer">
             <img
                 src={imagem}
                 alt={serie}
-                className="w-96 h-96 object-cover"
+                className="h-72 w-full object-cover sm:h-80 md:h-96"
             />
-            <div className="absolute bottom-0 left-0 bg-[#08284E] rounded-tr-2xl px-5 py-4">
+            <div className="absolute bottom-0 left-0 max-w-[calc(100%-1rem)] rounded-tr-2xl bg-[#08284E] px-4 py-3 sm:px-5 sm:py-4">
                 <p className="text-white text-xs font-bold tracking-[0.15em] mb-1">{serie}</p>
-                <p className="text-white/70 text-[10px] tracking-widest mb-1">{titulo}</p>
+                <p className="mb-1 text-[10px] text-white/70 tracking-[0.18em] sm:tracking-widest">{titulo}</p>
                 <p className="text-white/50 text-[10px]">{dimensoes}</p>
             </div>
-            <div className="absolute bottom-4 right-4">
-                <button className="text-[10px] tracking-widest text-white border border-white/40 rounded-full px-4 py-1 hover:bg-white/10 transition-colors">
+            <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4">
+                <button className="rounded-full border border-white/40 px-3 py-1 text-[10px] tracking-[0.16em] text-white transition-colors hover:bg-white/10 sm:px-4 sm:tracking-widest">
                     VER MAIS
                 </button>
             </div>
@@ -63,33 +63,33 @@ function CardObra({ serie, titulo, dimensoes, imagem }: typeof obras[0]) {
 
 export default function Colecao() {
     return (
-        <section id='colecoes' style={{ backgroundColor: '#F9F2EC' }} className="py-20 px-6">
+        <section id='colecoes' style={{ backgroundColor: '#F9F2EC' }} className="px-4 py-16 sm:px-6 sm:py-20">
             <div className="max-w-6xl mx-auto">
 
                 {/* Topo: logo + título */}
-                <div className="flex flex-col items-center gap-4 mb-14">
+                <div className="mb-10 flex flex-col items-center gap-4 sm:mb-14">
                 <div className="text-center">
-                        <img src="/logo2.png" alt="SN Logo" className="h-44 mx-auto mb-4" />
-                        <div className="flex items-center gap-4">
-                            <div className="w-48 h-px bg-[#4b3102] opacity-60" />
-                            <p className="text-xs tracking-[0.2em] text-[#6e4c0d] whitespace-nowrap">GALERIA SANDRA NOVAS</p>
-                            <div className="w-48 h-px bg-[#4b3102] opacity-60" />
+                        <img src="/logo2.png" alt="SN Logo" className="mx-auto mb-3 h-28 sm:mb-4 sm:h-44" />
+                        <div className="flex items-center justify-center gap-3 sm:gap-4">
+                            <div className="h-px w-10 bg-[#4b3102] opacity-60 sm:w-48" />
+                            <p className="text-[10px] tracking-[0.16em] text-[#6e4c0d] sm:text-xs sm:tracking-[0.2em]">GALERIA SANDRA NOVAS</p>
+                            <div className="h-px w-10 bg-[#4b3102] opacity-60 sm:w-48" />
                         </div>
                     </div>
-                    <div className="rounded-2xl px-10 py-3 text-center">
-                        <h2 className="text-3xl font-serif text-[#1a1a1a]">Explorar a coleção</h2>
+                    <div className="rounded-2xl px-4 py-2 text-center sm:px-10 sm:py-3">
+                        <h2 className="text-2xl font-serif text-[#1a1a1a] sm:text-3xl">Explorar a coleção</h2>
                     </div>
                 </div>
 
                 {/* Grid 3x2 */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-14">
+                <div className="mb-10 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 md:grid-cols-3 sm:mb-14">
                     {obras.map((obra) => (
                         <CardObra key={obra.serie} {...obra} />
                     ))}
                 </div>
 
                 {/* Última linha: imagem grande + card texto */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2">
                     <TiltedCard
                         imageSrc="/IMAGE 6.png"
                         altText="Cocar"
@@ -104,12 +104,12 @@ export default function Colecao() {
                         displayOverlayContent={false}
                     />
 
-                    <div className="bg-white rounded-2xl p-10 shadow-sm flex flex-col justify-center gap-6">
+                    <div className="flex flex-col justify-center gap-5 rounded-2xl bg-white p-6 shadow-sm sm:gap-6 sm:p-10">
                         <div>
                             <p className="text-[#08284E] text-xl font-bold tracking-widest mb-2">COCAR</p>
                             <p className="text-gray-400 text-sm">uga buga uga buga</p>
                         </div>
-                        <button className="w-full bg-[#08284E] text-white text-xs font-bold tracking-[0.2em] py-4 rounded-lg hover:bg-[#0a3566] transition-colors">
+                        <button className="w-full rounded-lg bg-[#08284E] py-3 text-[11px] font-bold tracking-[0.18em] text-white transition-colors hover:bg-[#0a3566] sm:py-4 sm:text-xs sm:tracking-[0.2em]">
                             VER MAIS
                         </button>
                     </div>

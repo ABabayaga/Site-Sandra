@@ -16,17 +16,17 @@ export default function Header() {
     <header>
       <nav
         aria-label="Primary"
-        className="fixed top-4 left-1/2 z-50 w-[calc(100%-24px)] max-w-6xl -translate-x-1/2"
+        className="fixed top-3 left-1/2 z-50 w-[calc(100%-16px)] max-w-6xl -translate-x-1/2 sm:top-4 sm:w-[calc(100%-24px)]"
       >
-        <div className="relative flex h-20 items-center justify-between rounded-2xl border border-white/10 bg-[#08284E]/70 px-4 shadow-[0_10px_40px_rgba(8,40,78,0.25)] backdrop-blur-xl md:px-5">
+        <div className="relative flex h-16 items-center justify-between rounded-2xl border border-white/10 bg-[#08284E]/70 px-3 shadow-[0_10px_40px_rgba(8,40,78,0.25)] backdrop-blur-xl sm:h-20 sm:px-4 md:px-5">
           {/* Anel interno sutil */}
           <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-white/10" />
 
           {/* Logo */}
           <a href="#" className="relative z-10 flex shrink-0 items-center">
             <img
-              src="/public/logo.png"
-              className="h-12 sm:h-24 object-contain"
+              src="/logo.png"
+              className="h-10 object-contain sm:h-24"
               alt="Logo"
             />
           </a>
@@ -48,7 +48,7 @@ export default function Header() {
 
           {/* Hamburger — mobile */}
           <button
-            className="relative z-10 flex lg:hidden flex-col justify-center items-center gap-1.5 w-9 h-9"
+            className="relative z-10 flex h-9 w-9 items-center justify-center gap-1.5 self-center lg:hidden"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Menu"
           >

@@ -21,22 +21,22 @@ const series = [
 
 export default function Series() {
     return (
-        <section id="series" style={{ backgroundColor: '#F9F2EC' }} className="py-20 px-6">
+        <section id="series" style={{ backgroundColor: '#F9F2EC' }} className="px-4 py-16 sm:px-6 sm:py-20">
             <div className="max-w-6xl mx-auto">
 
                 {/* Topo: logo + título */}
-                <div className="flex flex-col items-center gap-4 mb-14">
+                <div className="mb-10 flex flex-col items-center gap-4 sm:mb-14">
                 <div className="text-center">
-                        <img src="/logo2.png" alt="SN Logo" className="h-44 mx-auto mb-4" />
-                        <div className="flex items-center gap-4">
-                            <div className="w-48 h-px bg-[#4b3102] opacity-60" />
-                            <p className="text-xs tracking-[0.2em] text-[#6e4c0d] whitespace-nowrap">GALERIA SANDRA NOVAS</p>
-                            <div className="w-48 h-px bg-[#4b3102] opacity-60" />
+                        <img src="/logo2.png" alt="SN Logo" className="mx-auto mb-3 h-28 sm:mb-4 sm:h-44" />
+                        <div className="flex items-center justify-center gap-3 sm:gap-4">
+                            <div className="h-px w-10 bg-[#4b3102] opacity-60 sm:w-48" />
+                            <p className="text-[10px] tracking-[0.16em] text-[#6e4c0d] sm:text-xs sm:tracking-[0.2em]">GALERIA SANDRA NOVAS</p>
+                            <div className="h-px w-10 bg-[#4b3102] opacity-60 sm:w-48" />
                         </div>
                     </div>
 
-                    <div className="bg-#F9F2EC rounded-2xl px-12 py-6 text-center  w-full max-w-2xl">
-                        <h2 className="text-4xl font-serif text-[#1a1a1a] mb-3">SÉRIES</h2>
+                    <div className="w-full max-w-2xl rounded-2xl px-4 py-4 text-center sm:px-12 sm:py-6">
+                        <h2 className="mb-3 text-3xl font-serif text-[#1a1a1a] sm:text-4xl">SÉRIES</h2>
                         <p className="text-sm text-gray-500 leading-relaxed">
                             Cada série nasce de um estado interno, uma forma de perceber e traduzir o mundo
                         </p>
@@ -44,14 +44,14 @@ export default function Series() {
                 </div>
 
                 {/* Linhas de séries */}
-                <div className="flex flex-col gap-6">
+                <div className="flex flex-col gap-4 sm:gap-6">
                     {series.map((s) => (
                         <div
                             key={s.nome}
-                            className="bg-[#08284E] rounded-2xl flex items-center gap-6 px-6 py-5 shadow-sm"
+                            className="flex flex-col gap-4 rounded-2xl bg-[#08284E] px-4 py-4 shadow-sm sm:px-6 sm:py-5 md:flex-row md:items-center md:gap-6"
                         >
                             {/* Imagem */}
-                            <div className="shrink-0 w-20 h-20 rounded-xl overflow-hidden">
+                            <div className="h-20 w-20 shrink-0 overflow-hidden rounded-xl">
                                 <img
                                     src={s.imagem}
                                     alt={s.nome}
@@ -60,18 +60,18 @@ export default function Series() {
                             </div>
 
                             {/* Nome */}
-                            <p className="shrink-0 text-white text-xs font-bold tracking-[0.15em] w-36">
+                            <p className="w-full shrink-0 text-xs font-bold tracking-[0.15em] text-white md:w-36">
                                 {s.nome}
                             </p>
 
                             {/* Descrição */}
-                            <p className="flex-1 text-white/70 text-sm leading-relaxed">
+                            <p className="flex-1 text-sm leading-relaxed text-white/70">
                                 {s.descricao}
                             </p>
 
                             {/* Botão */}
-                            <div className="shrink-0">
-                                <button className="bg-[#C9A96E] text-white text-[10px] font-bold tracking-[0.15em] px-6 py-3 rounded-lg hover:bg-[#b8956a] transition-colors whitespace-nowrap">
+                            <div className="shrink-0 md:self-center">
+                                <button className="w-full rounded-lg bg-[#C9A96E] px-5 py-3 text-[10px] font-bold tracking-[0.15em] whitespace-nowrap text-white transition-colors hover:bg-[#b8956a] md:w-auto md:px-6">
                                     SAIBA MAIS
                                 </button>
                             </div>
