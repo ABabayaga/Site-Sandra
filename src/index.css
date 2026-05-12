@@ -1,1 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Gilda+Display&family=Mirza&display=swap');
 @import "tailwindcss";
+
+@theme {
+    --font-gilda: 'Gilda Display', serif;
+    --font-mirza: 'Mirza', serif;
+}

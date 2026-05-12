@@ -1,19 +1,19 @@
 const series = [
     {
         nome: 'SÉRIE TRANSIÇÕES',
-        imagem: '/colecao/transicoes.jpg',
+        imagem: '/BG1.png',
         descricao:
             'Entre um estado e outro, existem movimentos invisíveis. A série Transições nasce desses encontros — forças que se chocam, se misturam e se reorganizam. Aqui, a cor não é estática. Ela atravessa, rompe e se transforma, revelando processos internos que muitas vezes não conseguimos nomear.',
     },
     {
         nome: 'SÉRIE CICLOS',
-        imagem: '/colecao/ciclos.jpg',
+        imagem: '/BG.png',
         descricao:
             'vida se move em ritmos silenciosos, repetidos e necessários. A série Ciclos investiga esses fluxos — o que começa, termina e recomeça continuamente. As formas giram, se acumulam e se dissolvem, criando uma sensação de continuidade e renovação. Uma pausa para perceber o tempo não como linha, mas como movimento circular.',
     },
     {
         nome: 'SÉRIE MAR',
-        imagem: '/colecao/mar.jpg',
+        imagem: '/BG3.png',
         descricao:
             'O mar não é apenas paisagem, é estado. Na série Mar, a profundidade, o silêncio e o movimento coexistem em camadas. As cores evocam imensidão, fluidez e contemplação, criando uma sensação de mergulho.',
     },
@@ -21,21 +21,21 @@ const series = [
 
 export default function Series() {
     return (
-        <section style={{ backgroundColor: '#F9F2EC' }} className="py-20 px-6">
+        <section id="series" style={{ backgroundColor: '#F9F2EC' }} className="py-20 px-6">
             <div className="max-w-6xl mx-auto">
 
                 {/* Topo: logo + título */}
                 <div className="flex flex-col items-center gap-4 mb-14">
-                    <div className="bg-white rounded-2xl px-16 py-5 text-center shadow-sm">
-                        <img src="/logo.png" alt="SN Logo" className="h-12 mx-auto mb-3" />
-                        <div className="flex items-center gap-3">
-                            <span className="flex-1 h-px bg-gray-200" />
-                            <p className="text-xs tracking-[0.2em] text-[#C9A96E] whitespace-nowrap">GALERIA SANDRA NOVAS</p>
-                            <span className="flex-1 h-px bg-gray-200" />
+                <div className="text-center">
+                        <img src="/logo2.png" alt="SN Logo" className="h-44 mx-auto mb-4" />
+                        <div className="flex items-center gap-4">
+                            <div className="w-48 h-px bg-[#4b3102] opacity-60" />
+                            <p className="text-xs tracking-[0.2em] text-[#6e4c0d] whitespace-nowrap">GALERIA SANDRA NOVAS</p>
+                            <div className="w-48 h-px bg-[#4b3102] opacity-60" />
                         </div>
                     </div>
 
-                    <div className="bg-white rounded-2xl px-12 py-6 text-center shadow-sm w-full max-w-2xl">
+                    <div className="bg-#F9F2EC rounded-2xl px-12 py-6 text-center  w-full max-w-2xl">
                         <h2 className="text-4xl font-serif text-[#1a1a1a] mb-3">SÉRIES</h2>
                         <p className="text-sm text-gray-500 leading-relaxed">
                             Cada série nasce de um estado interno, uma forma de perceber e traduzir o mundo

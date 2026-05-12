@@ -1,6 +1,6 @@
 export default function Artista() {
     return (
-        <section style={{ backgroundColor: '#F9F2EC' }} className="py-20 px-6">
+        <section id="artista" style={{ backgroundColor: '#F9F2EC' }} className="py-20 px-6">
             <div className="max-w-6xl mx-auto">
 
                 {/* Topo: logo + título */}
@@ -14,7 +14,7 @@ export default function Artista() {
                         </div>
                     </div>
 
-                    <div className="bg-#C9A96Erounded-2xl px-16 py-6 text-center shadow-sm w-full max-w-2xl">
+                    <div className="bg-#C9A96E  px-16 py-6 text-center  w-full max-w-2xl">
                         <h2 className="text-4xl font-serif text-[#1a1a1a] leading-snug">
                             Uma trajetória guiada pelo<br />impulso criativo
                         </h2>
@@ -25,7 +25,7 @@ export default function Artista() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
                     {/* Card 1 — Sobre Mim */}
-                    <div className="bg-#C9A96Erounded-2xl p-8 shadow-sm flex flex-col justify-between">
+                    <div className="bg-#C9A96Erounded-2xl p-8 flex flex-col justify-between">
                         <div>
                             <p className="text-[11px] font-bold tracking-[0.2em] text-[#1a1a1a] mb-5">SOBRE MIM</p>
                             <p className="text-[#08284E] text-lg font-semibold leading-snug mb-6">
@@ -45,7 +45,7 @@ export default function Artista() {
                     </div>
 
                     {/* Card 2 — Texto */}
-                    <div className="bg-#C9A96E rounded-2xl p-8 shadow-sm flex flex-col justify-between">
+                    <div className="bg-#C9A96E rounded-2xl p-8  flex flex-col justify-between">
                         <div className="flex flex-col gap-5">
                             <p className="text-sm text-gray-600 leading-relaxed">
                                 Minha trajetória artística começou de forma intuitiva, guiada pela curiosidade e pela escuta do momento.

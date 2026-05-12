@@ -3,7 +3,14 @@ import React, { useState } from "react";
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const links = ["HOME", "PÁGINAS", "ARTISTA", "FEATURES", "LOJA", "CONTATO"];
+  const links = [
+    { label: "HOME", href: "#" },
+    { label: "ARTISTA", href: "#artista" },
+    { label: "COLEÇÕES", href: "#colecoes" },
+    { label: "SERIES", href: "#series" },
+    { label: "CONEXÕES", href: "#conexoes" },
+    { label: "CONTATO", href: "#contato" },
+  ];
 
   return (
     <header>
@@ -28,11 +35,11 @@ export default function Header() {
           <div className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 lg:flex">
             {links.map((link) => (
               <a
-                key={link}
-                href="#"
+                key={link.label}
+                href={link.href}
                 className="text-[13px] font-medium uppercase tracking-[0.16em] text-[#fba13b]"
               >
-                {link}
+                {link.label}
               </a>
             ))}
           </div>
@@ -59,12 +66,12 @@ export default function Header() {
         >
           <ul className="flex flex-col px-4 py-3 gap-1">
             {links.map((link) => (
-              <li key={link}>
+              <li key={link.label}>
                 <a
-                  href="#"
+                  href={link.href}
                   className="block rounded-xl px-4 py-2.5 text-[11px] font-medium uppercase tracking-[0.16em] text-[#D9BC9A]"
                 >
-                  {link}
+                  {link.label}
                 </a>
               </li>
             ))}

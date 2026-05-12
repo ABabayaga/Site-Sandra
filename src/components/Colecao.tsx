@@ -5,37 +5,37 @@ const obras = [
         serie: 'SÉRIE TRANSIÇÕES',
         titulo: 'ENCONTRO DE FORÇAS',
         dimensoes: '2,00 x 2,20',
-        imagem: '/colecao/transicoes.jpg',
+        imagem: '/serie1.png',
     },
     {
         serie: 'SÉRIES CICLOS',
         titulo: 'ENERGIA VITAL',
         dimensoes: '1,20 x 1,00',
-        imagem: '/colecao/ciclos.jpg',
+        imagem: '/serie2.png',
     },
     {
         serie: 'SÉRIE GOTEJAMENTO',
         titulo: 'MOVIMENTO E FLUXO',
         dimensoes: '1,00 x 1,00',
-        imagem: '/colecao/gotejamento.jpg',
+        imagem: '/serie3.png',
     },
     {
         serie: 'SÉRIE INTENSIDADE',
         titulo: 'ENERGIA INCANDESCENTE',
         dimensoes: '0,80 x 0,80',
-        imagem: '/colecao/intensidade.jpg',
+        imagem: '/serie4.png',
     },
     {
         serie: 'SÉRIE MAR',
         titulo: 'PROFUNDIDADE AZUL',
         dimensoes: '2,00 x 1,20',
-        imagem: '/colecao/mar.jpg',
+        imagem: '/serie5.png',
     },
     {
         serie: 'SÉRIE CONEXÕES',
         titulo: 'RAÍZES INVISÍVEIS',
         dimensoes: '2,00 x 1,20',
-        imagem: '/colecao/conexoes.jpg',
+        imagem: '/serie6.png',
     },
 ]
 
@@ -45,17 +45,17 @@ function CardObra({ serie, titulo, dimensoes, imagem }: typeof obras[0]) {
             <img
                 src={imagem}
                 alt={serie}
-                className="w-full h-72 object-cover"
+                className="w-96 h-96 object-cover"
             />
-            <div className="absolute bottom-0 left-0 right-0 bg-[#08284E] px-5 py-4">
+            <div className="absolute bottom-0 left-0 bg-[#08284E] rounded-tr-2xl px-5 py-4">
                 <p className="text-white text-xs font-bold tracking-[0.15em] mb-1">{serie}</p>
                 <p className="text-white/70 text-[10px] tracking-widest mb-1">{titulo}</p>
-                <p className="text-white/50 text-[10px] mb-3">{dimensoes}</p>
-                <div className="flex justify-end">
-                    <button className="text-[10px] tracking-widest text-white border border-white/40 rounded-full px-4 py-1 hover:bg-white/10 transition-colors">
-                        VER MAIS
-                    </button>
-                </div>
+                <p className="text-white/50 text-[10px]">{dimensoes}</p>
+            </div>
+            <div className="absolute bottom-4 right-4">
+                <button className="text-[10px] tracking-widest text-white border border-white/40 rounded-full px-4 py-1 hover:bg-white/10 transition-colors">
+                    VER MAIS
+                </button>
             </div>
         </div>
     )
@@ -63,16 +63,20 @@ function CardObra({ serie, titulo, dimensoes, imagem }: typeof obras[0]) {
 
 export default function Colecao() {
     return (
-        <section style={{ backgroundColor: '#F9F2EC' }} className="py-20 px-6">
+        <section id='colecoes' style={{ backgroundColor: '#F9F2EC' }} className="py-20 px-6">
             <div className="max-w-6xl mx-auto">
 
                 {/* Topo: logo + título */}
                 <div className="flex flex-col items-center gap-4 mb-14">
-                    <div className="bg-white rounded-2xl px-16 py-5 text-center shadow-sm">
-                        <img src="/logo.png" alt="SN Logo" className="h-12 mx-auto mb-2" />
-                        <p className="text-xs tracking-[0.2em] text-[#C9A96E]">GALERIA SANDRA NOVAS</p>
+                <div className="text-center">
+                        <img src="/logo2.png" alt="SN Logo" className="h-44 mx-auto mb-4" />
+                        <div className="flex items-center gap-4">
+                            <div className="w-48 h-px bg-[#4b3102] opacity-60" />
+                            <p className="text-xs tracking-[0.2em] text-[#6e4c0d] whitespace-nowrap">GALERIA SANDRA NOVAS</p>
+                            <div className="w-48 h-px bg-[#4b3102] opacity-60" />
+                        </div>
                     </div>
-                    <div className="bg-white/60 rounded-2xl px-10 py-3 text-center">
+                    <div className="rounded-2xl px-10 py-3 text-center">
                         <h2 className="text-3xl font-serif text-[#1a1a1a]">Explorar a coleção</h2>
                     </div>
                 </div>
