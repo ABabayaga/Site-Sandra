@@ -2,7 +2,7 @@ const conexoes = [
     {
         nome: 'GUSTAVO SOARES',
         cargo: 'Empresário',
-        imagem: '/gus2.jpg',
+        imagem: '/gus4.jpeg',
         texto1: `Algumas conexões não começam com um plano, começam com o tempo. Gustavo acompanha a trajetória de Sandra há mais de duas décadas. Ao longo desse caminho, o que se construiu foi além de momentos pontuais: uma relação atravessada por ciclos pessoais e profissionais, marcada por proximidade, confiança e uma admiração que se manteve constante.\n\nEntre encontros e recomeços, existe uma presença que nunca deixou de existir — aquela que não precisa ser anunciada, mas que se revela nas escolhas, nas decisões e no apoio silencioso.`,
         texto2: `Hoje, sua participação se traduz em visão, suporte e sensibilidade para reconhecer o valor de uma obra antes mesmo dela estar pronta. Existe um olhar atento para o que ainda está em processo, uma capacidade de enxergar potência onde muitos ainda veem apenas início.\n\nMais do que um investidor, Gustavo integra a estrutura invisível que sustenta o que se torna visível — alguém que compreende que a arte não nasce apenas do gesto criativo, mas também do ambiente que permite que ela exista.`,
     },
