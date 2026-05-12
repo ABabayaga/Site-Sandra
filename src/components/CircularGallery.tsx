@@ -1,4 +1,4 @@
-import { Camera, Mesh, Plane, Program, Renderer, Texture, Transform } from 'ogl';
+import { Camera, Mesh, Plane, Program, Renderer, Texture, Transform, type OGLRenderingContext } from 'ogl';
 import { useEffect, useRef } from 'react';
 
 interface GalleryItem {
@@ -38,7 +38,7 @@ function autoBind(instance: object): void {
 }
 
 function createTextTexture(
-  gl: WebGLRenderingContext,
+  gl: OGLRenderingContext,
   text: string,
   font = 'bold 30px monospace',
   color = 'black'
@@ -63,7 +63,7 @@ function createTextTexture(
 }
 
 class Title {
-  gl: WebGLRenderingContext;
+  gl: OGLRenderingContext;
   plane: Mesh;
   renderer: Renderer;
   text: string;
@@ -79,7 +79,7 @@ class Title {
     textColor = '#545050',
     font = '30px sans-serif',
   }: {
-    gl: WebGLRenderingContext;
+    gl: OGLRenderingContext;
     plane: Mesh;
     renderer: Renderer;
     text: string;
@@ -141,7 +141,7 @@ interface ScrollState { ease: number; current: number; target: number; last: num
 class Media {
   extra = 0;
   geometry: Plane;
-  gl: WebGLRenderingContext;
+  gl: OGLRenderingContext;
   image: string;
   index: number;
   length: number;
@@ -171,7 +171,7 @@ class Media {
     text, viewport, bend, textColor, borderRadius = 0, font,
   }: {
     geometry: Plane;
-    gl: WebGLRenderingContext;
+    gl: OGLRenderingContext;
     image: string;
     index: number;
     length: number;
@@ -356,7 +356,7 @@ class App {
   scroll: ScrollState;
   onCheckDebounce: () => void;
   renderer!: Renderer;
-  gl!: WebGLRenderingContext;
+  gl!: OGLRenderingContext;
   camera!: Camera;
   scene!: Transform;
   screen!: Screen;
