@@ -30,7 +30,7 @@ export default function Conexoes() {
                 {/* Linhas */}
                 <div className="flex flex-col gap-6 sm:gap-8">
                     {conexoes.map((c) => (
-                        <div key={c.nome} className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-3">
+                        <div key={c.nome} className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-3 md:items-start">
 
                             {/* Col 1 — Foto */}
                             <div className="relative min-h-[280px] overflow-hidden rounded-2xl bg-[#F9F2EC] p-3 shadow-sm sm:min-h-72 sm:p-4">

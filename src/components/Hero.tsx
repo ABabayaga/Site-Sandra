@@ -12,7 +12,7 @@ export default function Hero() {
             </video>
 
             {/* Overlay escuro sutil para dar contraste ao conteúdo */}
-            <div className="absolute inset-0 bg-black/30" />
+            <div className="absolute inset-0 bg-black/40" />
 
             <div className="absolute inset-0 flex flex-col items-center justify-center px-4 pt-24 pb-10 text-center sm:px-6">
                 <p className="mb-4 text-[10px] font-light uppercase tracking-[0.28em] text-white/80 drop-shadow-md font-mirza sm:mb-6 sm:text-xs sm:tracking-[0.35em]">
