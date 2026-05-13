@@ -113,7 +113,7 @@ export default function Colecao({ selectedImage }: { selectedImage?: string }) {
                     <div className="flex flex-col justify-center gap-5 rounded-2xl bg-white p-6 shadow-sm sm:gap-6 sm:p-10">
                         <div>
                             <p className="text-[#08284E] text-xl font-bold tracking-widest mb-2">COCAR</p>
-                            <p className="text-gray-400 text-sm">uga buga uga buga</p>
+                            <p className="text-gray-400 text-sm"></p>
                         </div>
                         <button className="w-full rounded-lg bg-[#08284E] py-3 text-[11px] font-bold tracking-[0.18em] text-white transition-colors hover:bg-[#0a3566] sm:py-4 sm:text-xs sm:tracking-[0.2em]">
                             VER MAIS
