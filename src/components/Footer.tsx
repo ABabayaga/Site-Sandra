@@ -37,8 +37,14 @@ export default function Footer() {
                             <p className="text-[11px] uppercase tracking-[0.18em] text-white/60 sm:text-xs sm:tracking-widest">
                                 Segunda a Sexta-feira
                             </p>
-                            <p className="text-[11px] uppercase tracking-[0.18em] text-white/60 sm:text-xs sm:tracking-widest">
+                            <p className="text-[11px] uppercase tracking-[0.18em] pb-2 text-white/60 sm:text-xs sm:tracking-widest">
                                 10h às 19h
+                            </p>
+                            <p className="text-[11px] uppercase tracking-[0.18em] text-white/60 sm:text-xs sm:tracking-widest">
+                                Sábados
+                            </p>
+                            <p className="text-[11px] uppercase tracking-[0.18em] text-white/60 sm:text-xs sm:tracking-widest">
+                                09h às 13h
                             </p>
                         </div>
                     </div>

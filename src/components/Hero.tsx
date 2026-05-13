@@ -21,7 +21,7 @@ export default function Hero() {
 
                 <div className="mb-5 flex w-full max-w-4xl items-center justify-center gap-3 sm:mb-6 sm:gap-6">
                     <div className="h-px flex-1 bg-yellow-400 opacity-80" />
-                    <h1 className="max-w-[220px] text-4xl leading-none font-light tracking-[0.12em] text-white drop-shadow-lg font-gilda sm:max-w-none sm:text-6xl sm:tracking-widest md:text-8xl">
+                    <h1 className="max-w-[220px] text-4xl leading-none font-bold tracking-[0.12em] text-white drop-shadow-lg font-poppins sm:max-w-none sm:text-6xl sm:tracking-widest md:text-8xl">
                         Sandra Novas
                     </h1>
                     <div className="h-px flex-1 bg-yellow-400 opacity-80" />

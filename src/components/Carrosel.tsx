@@ -1,21 +1,26 @@
 import { useRef, useEffect, useCallback } from 'react';
 
 const items = [
-  { image: '/IMAGE 1.png', text: 'Exemplo' },
-  { image: '/IMAGE 2.png', text: 'Exemplo' },
-  { image: '/IMAGE 3.png', text: 'Exemplo' },
-  { image: '/IMAGE 4.png', text: 'Exemplo' },
-  { image: '/IMAGE 5.png', text: 'Exemplo' },
-  { image: '/IMAGE 6.png', text: 'Exemplo' },
-  { image: '/IMAGE 7.png', text: 'Exemplo' },
+  { image: '/IMAGE 1.png', text: 'Quadro 1' },
+  { image: '/IMAGE 2.png', text: 'Quadro 2' },
+  { image: '/IMAGE 3.png', text: 'Quadro 3' },
+  { image: '/IMAGE 4.png', text: 'Quadro 4' },
+  { image: '/IMAGE 5.png', text: 'Quadro 5' },
+  { image: '/IMAGE 6.png', text: 'Quadro 6' },
+  { image: '/IMAGE 7.png', text: 'Quadro 7' },
 ];
+
+interface CarroselProps {
+  selectedImage?: string;
+  onSelect?: (image: string) => void;
+}
 
 // Triple array for infinite loop: [copy1, copy2, copy3]
 const ITEMS = [...items, ...items, ...items];
 const N = ITEMS.length; // 21
 const L = items.length; // 7
 
-export default function Carrosel() {
+export default function Carrosel({ selectedImage, onSelect }: CarroselProps) {
   const outerRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const idxRef = useRef(L); // start at middle copy
@@ -89,15 +94,25 @@ export default function Carrosel() {
           className="flex"
           style={{ width: `${(N * 100) / 3}%` }}
         >
-          {ITEMS.map((item, i) => (
-            <div key={i} style={{ width: `${100 / N}%` }} className="px-1.5 sm:px-2">
-              <img
-                src={item.image}
-                alt={item.text}
-                className="h-44 w-full rounded-2xl object-cover sm:h-56"
-              />
-            </div>
-          ))}
+          {ITEMS.map((item, i) => {
+            const isSelected = selectedImage === items[i % L].image;
+            return (
+              <div
+                key={i}
+                style={{ width: `${100 / N}%` }}
+                className="px-1.5 sm:px-2"
+                onClick={() => onSelect?.(items[i % L].image)}
+              >
+                <img
+                  src={item.image}
+                  alt={item.text}
+                  className={`h-44 w-full rounded-2xl object-cover sm:h-56 cursor-pointer transition-all duration-200 ${
+                    isSelected ? 'ring-4 ring-[#08284E] scale-[1.03]' : 'hover:opacity-80'
+                  }`}
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
 

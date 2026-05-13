@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Header from "./Header";
 import Hero from "./Hero";
 import ArtistaCard from "./ArtistaCard";
@@ -9,14 +10,16 @@ import Conexoes from "./Conexoes";
 import Footer from "./Footer";
 
 const Index = () => {
+    const [selectedImage, setSelectedImage] = useState<string>('/IMAGE 6.png');
+
     return (
       <main>
         <Header />
         <Hero />
         <ArtistaCard />
         <Artista />
-        <Colecao />
-        <Carrosel />
+        <Colecao selectedImage={selectedImage} />
+        <Carrosel selectedImage={selectedImage} onSelect={setSelectedImage} />
         <Series />
         <Conexoes />
         <Footer />
