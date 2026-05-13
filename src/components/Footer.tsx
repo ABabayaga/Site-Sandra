@@ -16,7 +16,7 @@ export default function Footer() {
                     {/* Col 2 — Endereço, Instagram e Horário */}
                     <div className="flex flex-col justify-center gap-4 rounded-2xl border border-white/30 px-5 py-5 sm:px-8">
                         <div>
-                            <p className="text-white text-base font-semibold mb-2">Contato</p>
+                            <p className="text-white text-base font-semibold mb-2">Atendimento</p>
                             <p className="text-[11px] uppercase tracking-[0.18em] text-white/60 sm:text-xs sm:tracking-widest">
                                 R. Spipe Calarge, 280 – Campo Grande – MS
                             </p>
