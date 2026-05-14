@@ -29,10 +29,12 @@ export default function Artista() {
                         <div>
                             <p className="text-[11px] font-bold tracking-[0.2em] text-[#1a1a1a] mb-5">SOBRE MIM</p>
                             <p className="mb-5 text-base leading-snug font-semibold text-[#08284E] sm:mb-6 sm:text-lg">
-                                Hoje, minha produção se concentra na pintura abstrata, onde investigo a natureza e as conexões sensoriais.
+                            Sandra Novas desenvolve uma pesquisa artística voltada à abstração sensível, explorando a relação entre matéria, emoção e presença.
+
                             </p>
                             <p className="text-sm leading-relaxed text-gray-500">
-                                Cada obra é uma tradução de estados internos, transformados em paisagens de cor, movimento e intensidade.
+                            Sua produção utiliza a pintura como linguagem intuitiva, onde textura, gesto e cor constroem atmosferas que evocam estados internos e experiências sensoriais.
+
                             </p>
                         </div>
                         <div className="mt-6 sm:mt-8">
@@ -48,14 +50,13 @@ export default function Artista() {
                     <div className="rounded-2xl p-6 flex flex-col justify-between sm:p-8">
                         <div className="flex flex-col gap-5">
                             <p className="text-sm text-gray-600 leading-relaxed">
-                                Minha trajetória artística começou de forma intuitiva, guiada pela curiosidade e pela escuta do momento.
+                            Com obras marcadas por camadas orgânicas e composições de forte presença visual, a artista cria séries que transitam entre intensidade e silêncio, movimento e contemplação.
+
                             </p>
                             <p className="text-sm text-gray-600 leading-relaxed">
-                                Sem formação acadêmica, construí minha linguagem de maneira orgânica, onde a criação nasce do impulso e da conexão com o que sinto.
+                            A Galeria Sandra Novas surge como um espaço de conexão entre arte, percepção e experiência — reunindo trabalhos que convidam o olhar a desacelerar e permanecer.
                             </p>
-                            <p className="text-sm text-gray-600 leading-relaxed">
-                                Minhas primeiras obras surgiram como gestos de troca e afeto, antes de qualquer intenção comercial.
-                            </p>
+                            
                         </div>
                         <p className="mt-6 text-base leading-snug font-semibold text-[#08284E] sm:mt-8 sm:text-lg">
                             Um espaço de liberdade, experimentação e escuta.
