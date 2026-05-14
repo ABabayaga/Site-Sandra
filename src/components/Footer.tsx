@@ -2,7 +2,7 @@ export default function Footer() {
     return (
         <footer id="contato">
             <div className="bg-[#08284E] px-4 py-8 sm:px-6">
-                <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 items-stretch sm:gap-8 md:grid-cols-3">
+                <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 items-stretch sm:gap-10 md:grid-cols-2">
 
                     {/* Col 1 — Logo + Nome */}
                     <div className="flex w-full flex-col items-center gap-3 rounded-2xl border border-white/30 px-6 py-5 sm:px-10">
@@ -46,22 +46,6 @@ export default function Footer() {
                             <p className="text-[11px] uppercase tracking-[0.18em] text-white/60 sm:text-xs sm:tracking-widest">
                                 09h às 13h
                             </p>
-                        </div>
-                    </div>
-
-                    {/* Col 3 — Parceiros */}
-                    <div className="flex flex-col justify-center gap-4 rounded-2xl border border-white/30 px-5 py-5 sm:px-8">
-                        <p className="text-white text-base font-semibold">Parceiros</p>
-                        <div className="flex flex-wrap items-center gap-4">
-                            <a href="https://www.instagram.com/br7.mkt_/" target="_blank" rel="noopener noreferrer">
-                                <img src="/br7.png" alt="Parceiro 1" className="h-10 object-contain opacity-70 hover:opacity-100 transition-opacity" />
-                            </a>
-                            <a href="#" target="_blank" rel="noopener noreferrer">
-                                <img src="/parceiro2.png" alt="Parceiro 2" className="h-10 object-contain opacity-70 hover:opacity-100 transition-opacity" />
-                            </a>
-                            <a href="#" target="_blank" rel="noopener noreferrer">
-                                <img src="/parceiro3.png" alt="Parceiro 3" className="h-10 object-contain opacity-70 hover:opacity-100 transition-opacity" />
-                            </a>
                         </div>
                     </div>
 
