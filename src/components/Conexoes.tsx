@@ -3,8 +3,10 @@ const conexoes = [
         nome: 'GUSTAVO SOARES',
         cargo: 'Empresário',
         imagem: '/gus4.jpeg',
-        texto1: `Algumas conexões não começam com um plano, começam com o tempo. Gustavo Soares acompanha a trajetória de Sandra há mais de duas décadas. Ao longo desse caminho, o que se construiu foi além de momentos pontuais: uma relação atravessada por ciclos pessoais e profissionais, marcada por proximidade, confiança e uma admiração que se manteve constante.\n\nEntre encontros e recomeços, existe uma presença que nunca deixou de existir — aquela que não precisa ser anunciada, mas que se revela nas escolhas, nas decisões e no apoio silencioso.`,
-        texto2: `Hoje, sua participação se traduz em visão, suporte e sensibilidade para reconhecer o valor de uma obra antes mesmo dela estar pronta. Existe um olhar atento para o que ainda está em processo, uma capacidade de enxergar potência onde muitos ainda veem apenas início.\n\nMais do que um investidor, Gustavo Soares integra a estrutura invisível que sustenta o que se torna visível — alguém que compreende que a arte não nasce apenas do gesto criativo, mas também do ambiente que permite que ela exista.`,
+        texto1: `Gustavo Soares é empresário e investidor, com uma trajetória marcada pela visão estratégica e pela capacidade de identificar projetos com potencial de crescimento.\n\nSua relação profissional com Sandra Novas atravessa mais de duas décadas, acompanhando diferentes fases de sua evolução artística e empreendedora. Ao longo desse período, Gustavo Soares passou a reconhecer não apenas a força de sua produção artística, mas também o potencial de expansão de sua marca no mercado da arte.
+`,
+        texto2: `Hoje, sua atuação está diretamente ligada ao desenvolvimento da Galeria Sandra Novas, contribuindo com investimento, visão empresarial e apoio estratégico para fortalecer a presença da artista no mercado. Sua participação também se estende ao posicionamento, comunicação e estrutura de marketing da galeria, elementos fundamentais para ampliar o alcance, a percepção de valor e a conexão da obra com novos públicos.
+\n\nMais do que apoiar a produção artística, Gustavo Soares investe na construção de uma estrutura capaz de transformar talento, identidade e expressão em presença de mercado. Sua atuação reforça a importância de unir arte, estratégia e gestão para que a Galeria Sandra Novas avance com consistência, profissionalismo e visão de futuro.`,
     },
     {
         nome: 'Deise Rigon',
