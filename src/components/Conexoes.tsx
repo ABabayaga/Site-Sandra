@@ -11,7 +11,7 @@ const conexoes = [
     {
         nome: 'Deise Rigon',
         cargo: 'FL HOME',
-        imagem: '/fh.png',
+        imagem: '/deise.jpeg',
         texto1: `À frente da marca, Deise Rigon conduz uma construção guiada por percepção, intenção e cuidado — valores que se conectam de forma natural com o processo artístico. Não como caminhos paralelos, mas como linguagens que se reconhecem.\n\nNesse encontro, arte e ambiente deixam de ocupar espaços distintos e passam a dialogar de maneira orgânica. A obra não apenas compõe o espaço, ela se integra a ele. E o espaço, por sua vez, amplia a presença da obra.`,
         texto2: `O que se estabelece não é uma relação comercial, mas uma convergência de visões. Um alinhamento onde diferentes formas de expressão se encontram para criar experiências mais completas, mais sensíveis e mais significativas.\n\nPorque no fim, trata-se menos sobre onde cada elemento está — e mais sobre o que eles constroem juntos.`,
     },
