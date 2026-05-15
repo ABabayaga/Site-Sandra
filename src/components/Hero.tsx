@@ -6,9 +6,11 @@ export default function Hero() {
                 loop
                 muted
                 playsInline
+                preload="auto"
+                poster="/video4-poster.jpg"
                 className="absolute inset-0 w-full h-full object-cover"
             >
-                <source src="/video4.mp4" type="video/mp4" />
+                <source src="/video4-opt.mp4" type="video/mp4" />
             </video>
 
             {/* Overlay escuro sutil para dar contraste ao conteúdo */}
