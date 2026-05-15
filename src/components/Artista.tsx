@@ -32,7 +32,7 @@ export default function Artista() {
                             Sandra Novas desenvolve uma pesquisa artística voltada à abstração sensível, explorando a relação entre matéria, emoção e presença.
 
                             </p>
-                            <p className="text-sm leading-relaxed text-gray-500">
+                            <p className="text-sm leading-relaxed text-gray-700">
                             Sua produção utiliza a pintura como linguagem intuitiva, onde textura, gesto e cor constroem atmosferas que evocam estados internos e experiências sensoriais.
 
                             </p>
@@ -42,7 +42,7 @@ export default function Artista() {
                                 sandra novas
                             </p>
                             <p className="font-semibold text-[#1a1a1a] text-sm">Sandra Novas</p>
-                            <p className="text-xs text-gray-400">Artista visual</p>
+                            <p className="text-xs text-gray-600">Artista visual</p>
                         </div>
                     </div>
 

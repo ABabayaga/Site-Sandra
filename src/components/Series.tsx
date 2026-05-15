@@ -37,7 +37,7 @@ export default function Series() {
 
                     <div className="w-full max-w-2xl rounded-2xl px-4 py-4 text-center sm:px-12 sm:py-6">
                         <h2 className="mb-3 text-3xl font-serif text-[#1a1a1a] sm:text-4xl">SÉRIES</h2>
-                        <p className="text-sm text-gray-500 leading-relaxed">
+                        <p className="text-sm text-gray-700 leading-relaxed">
                             Cada série nasce de um estado interno, uma forma de perceber e traduzir o mundo
                         </p>
                     </div>
@@ -71,7 +71,7 @@ export default function Series() {
 
                             {/* Botão */}
                             <div className="shrink-0 md:self-center">
-                                <button className="w-full rounded-lg bg-[#C9A96E] px-5 py-3 text-[10px] font-bold tracking-[0.15em] whitespace-nowrap text-white transition-colors hover:bg-[#b8956a] md:w-auto md:px-6">
+                                <button className="w-full rounded-lg bg-[#C9A96E] px-5 py-3 text-[10px] font-bold tracking-[0.15em] whitespace-nowrap text-[#08284E] transition-colors hover:bg-[#b8956a] md:w-auto md:px-6">
                                     SAIBA MAIS
                                 </button>
                             </div>

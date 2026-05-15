@@ -54,7 +54,7 @@ export default function Footer() {
 
             {/* Bottom bar */}
             <div className="bg-[#2a2a28] px-4 py-5 sm:px-6">
-                <p className="text-center text-[9px] uppercase tracking-[0.16em] text-white/30 sm:text-[10px] sm:tracking-[0.2em]">
+                <p className="text-center text-[9px] uppercase tracking-[0.16em] text-white/60 sm:text-[10px] sm:tracking-[0.2em]">
                     Agência BR7 – Marketing em Movimento 2026
                 </p>
             </div>
