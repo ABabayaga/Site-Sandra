@@ -18,7 +18,7 @@ export default function Footer() {
                         <div>
                             <p className="text-white text-base font-semibold mb-2">Atendimento</p>
                             <p className="text-[11px] uppercase tracking-[0.18em] text-white/60 sm:text-xs sm:tracking-widest">
-                                R. Spipe Calarge, 280 – Campo Grande – MS
+                                R. Spipe Calarge, 286 – Campo Grande – MS
                             </p>
                         </div>
 

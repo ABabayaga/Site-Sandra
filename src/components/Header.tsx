@@ -18,7 +18,7 @@ export default function Header() {
         aria-label="Primary"
         className="fixed top-3 left-1/2 z-50 w-[calc(100%-16px)] max-w-6xl -translate-x-1/2 sm:top-4 sm:w-[calc(100%-24px)]"
       >
-        <div className="relative flex h-16 items-center justify-between rounded-2xl border border-white/10 bg-[#08284E]/70 px-3 shadow-[0_10px_40px_rgba(8,40,78,0.25)] backdrop-blur-xl sm:h-20 sm:px-4 md:px-5">
+        <div className="relative flex h-16 items-center justify-between rounded-2xl border border-white/10 bg-[#08284E]/80 px-3 shadow-[0_10px_40px_rgba(8,40,78,0.25)] backdrop-blur-xl sm:h-20 sm:px-4 md:px-5">
           {/* Anel interno sutil */}
           <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-white/10" />
 
