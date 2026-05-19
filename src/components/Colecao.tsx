@@ -1,4 +1,4 @@
-import TiltedCard from './TiltedCard'
+import { useState, useEffect } from 'react'
 
 const obras = [
     {
@@ -39,7 +39,103 @@ const obras = [
     },
 ]
 
-function CardObra({ serie, titulo, dimensoes, imagem }: typeof obras[0]) {
+function SlideshowModal({ initialIndex, onClose }: { initialIndex: number; onClose: () => void }) {
+    const [current, setCurrent] = useState(initialIndex)
+    const [visible, setVisible] = useState(false)
+
+    useEffect(() => {
+        requestAnimationFrame(() => setVisible(true))
+        const handleKey = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') handleClose()
+            if (e.key === 'ArrowRight') nextSlide()
+            if (e.key === 'ArrowLeft') prevSlide()
+        }
+        document.addEventListener('keydown', handleKey)
+        document.body.style.overflow = 'hidden'
+        return () => {
+            document.removeEventListener('keydown', handleKey)
+            document.body.style.overflow = ''
+        }
+    }, [])
+
+    const nextSlide = () => setCurrent((prev) => (prev + 1) % obras.length)
+    const prevSlide = () => setCurrent((prev) => (prev - 1 + obras.length) % obras.length)
+
+    const handleClose = () => {
+        setVisible(false)
+        setTimeout(onClose, 300)
+    }
+
+    return (
+        <div
+            className={`fixed inset-0 z-50 flex items-center justify-center bg-black transition-opacity duration-300 ${visible ? 'opacity-100' : 'opacity-0'}`}
+            onClick={handleClose}
+        >
+            {/* Slides */}
+            {obras.map((obra, i) => (
+                <div
+                    key={i}
+                    className={`absolute inset-0 transition-opacity duration-500 ${i === current ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+                    style={{
+                        backgroundImage: `url(${obra.imagem})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                    }}
+                    onClick={(e) => e.stopPropagation()}
+                >
+                    {/* Gradient overlay + info */}
+                    <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 via-black/30 to-transparent px-8 pb-20 pt-32">
+                        <p className="text-white/70 text-[10px] tracking-[0.22em] mb-2">{obra.serie}</p>
+                        <p className="text-white text-2xl font-serif tracking-wide">{obra.titulo}</p>
+                        <p className="text-white/50 text-xs mt-2 tracking-widest">{obra.dimensoes}</p>
+                    </div>
+                </div>
+            ))}
+
+            {/* Botão fechar */}
+            <button
+                onClick={handleClose}
+                className="absolute top-5 right-5 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-white/30 text-white text-lg hover:bg-white/10 transition-colors"
+            >
+                ✕
+            </button>
+
+            {/* Prev */}
+            <button
+                onClick={(e) => { e.stopPropagation(); prevSlide() }}
+                className="absolute left-4 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-white/30 text-white text-xl hover:bg-white/10 transition-colors sm:left-8"
+            >
+                ←
+            </button>
+
+            {/* Next */}
+            <button
+                onClick={(e) => { e.stopPropagation(); nextSlide() }}
+                className="absolute right-4 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-white/30 text-white text-xl hover:bg-white/10 transition-colors sm:right-8"
+            >
+                →
+            </button>
+
+            {/* Counter */}
+            <div className="absolute bottom-6 right-8 z-10 text-white/60 text-xs tracking-[0.2em]">
+                0{current + 1} / 0{obras.length}
+            </div>
+
+            {/* Dots */}
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex gap-2">
+                {obras.map((_, i) => (
+                    <button
+                        key={i}
+                        onClick={(e) => { e.stopPropagation(); setCurrent(i) }}
+                        className={`h-1.5 rounded-full transition-all duration-300 ${i === current ? 'w-6 bg-white' : 'w-1.5 bg-white/40'}`}
+                    />
+                ))}
+            </div>
+        </div>
+    )
+}
+
+function CardObra({ serie, titulo, dimensoes, imagem, onVerMais }: typeof obras[0] & { onVerMais: () => void }) {
     return (
         <div className="group relative overflow-hidden rounded-2xl shadow-sm cursor-pointer">
             <img
@@ -53,7 +149,10 @@ function CardObra({ serie, titulo, dimensoes, imagem }: typeof obras[0]) {
                 <p className="text-white/50 text-[10px]">{dimensoes}</p>
             </div>
             <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4">
-                <button className="rounded-full border border-white/40 px-3 py-1 text-[10px] tracking-[0.16em] text-white transition-colors hover:bg-white/10 sm:px-4 sm:tracking-widest">
+                <button
+                    onClick={onVerMais}
+                    className="rounded-full border border-white/40 px-3 py-1 text-[10px] tracking-[0.16em] text-white transition-colors hover:bg-white/10 sm:px-4 sm:tracking-widest"
+                >
                     VER MAIS
                 </button>
             </div>
@@ -61,7 +160,9 @@ function CardObra({ serie, titulo, dimensoes, imagem }: typeof obras[0]) {
     )
 }
 
-export default function Colecao({ selectedImage }: { selectedImage?: string }) {
+export default function Colecao() {
+    const [modalIndex, setModalIndex] = useState<number | null>(null)
+
     return (
         <section id='colecoes' style={{ backgroundColor: '#F9F2EC' }} className="px-4 py-16 sm:px-6 sm:py-20">
             <div className="max-w-6xl mx-auto">
@@ -83,45 +184,20 @@ export default function Colecao({ selectedImage }: { selectedImage?: string }) {
 
                 {/* Grid 3x2 */}
                 <div className="mb-10 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 md:grid-cols-3 sm:mb-14">
-                    {obras.map((obra) => (
-                        <CardObra key={obra.serie} {...obra} />
+                    {obras.map((obra, i) => (
+                        <CardObra key={obra.serie} {...obra} onVerMais={() => setModalIndex(i)} />
                     ))}
                 </div>
 
-                <div className="flex items-center justify-center pb-24 gap-3 sm:gap-4">
-                    <div className="h-px w-10 bg-[#4b3102] opacity-60 sm:w-48" />
-                    <p className="text-[10px] tracking-[0.16em] text-[#6e4c0d] sm:text-xs sm:tracking-[0.2em]">GALERIA SANDRA NOVAS</p>
-                    <div className="h-px w-10 bg-[#4b3102] opacity-60 sm:w-48" />
-                </div>
-
-                {/* Última linha: imagem grande + card texto */}
-                <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2">
-                    <TiltedCard
-                        imageSrc={selectedImage ?? '/IMAGE 6.png'}
-                        altText="Cocar"
-                        rotateAmplitude={13}
-                        scaleOnHover={1.2}
-                        containerWidth="100%"
-                        containerHeight="400px"
-                        imageWidth="100%"
-                        imageHeight="400px"
-                        showMobileWarning={false}
-                        showTooltip={false}
-                        displayOverlayContent={false}
-                    />
-
-                    <div className="flex flex-col justify-center gap-5 rounded-2xl bg-white p-6 shadow-sm sm:gap-6 sm:p-10">
-                        <div>
-                            <p className="text-[#08284E] text-xl font-bold tracking-widest mb-2">COCAR</p>
-                            <p className="text-gray-400 text-sm"></p>
-                        </div>
-                        <button className="w-full rounded-lg bg-[#08284E] py-3 text-[11px] font-bold tracking-[0.18em] text-white transition-colors hover:bg-[#0a3566] sm:py-4 sm:text-xs sm:tracking-[0.2em]">
-                            VER MAIS
-                        </button>
-                    </div>
-                </div>
-
             </div>
+
+            {/* Modal Slideshow */}
+            {modalIndex !== null && (
+                <SlideshowModal
+                    initialIndex={modalIndex}
+                    onClose={() => setModalIndex(null)}
+                />
+            )}
         </section>
     )
 }
