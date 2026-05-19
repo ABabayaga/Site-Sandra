@@ -1,6 +1,6 @@
 const conexoes = [
     {
-        nome: 'GUSTAVO SOARES',
+        nome: 'Gustavo Soares',
         cargo: 'Empresário',
         imagem: '/gus5.jpeg',
         texto1: `Gustavo Soares é empresário e investidor, com uma trajetória marcada pela visão estratégica e pela capacidade de identificar projetos com potencial de crescimento.\n\nSua relação profissional com Sandra Novas atravessa mais de duas décadas, acompanhando diferentes fases de sua evolução artística e empreendedora. Ao longo desse período, Gustavo Soares passou a reconhecer não apenas a força de sua produção artística, mas também o potencial de expansão de sua marca no mercado da arte. \n\n Hoje, sua atuação está diretamente ligada ao desenvolvimento da Galeria Sandra Novas.`,
@@ -8,10 +8,10 @@ const conexoes = [
     },
     {
         nome: 'Deise Rigon',
-        cargo: 'FL HOME',
+        cargo: 'FL Home',
         imagem: '/deise2.jpeg',
-        texto1: `À frente da marca, Deise Rigon conduz uma construção guiada por percepção, intenção e cuidado — valores que se conectam de forma natural com o processo artístico. Não como caminhos paralelos, mas como linguagens que se reconhecem.\n\nNesse encontro, arte e ambiente deixam de ocupar espaços distintos e passam a dialogar de maneira orgânica. A obra não apenas compõe o espaço, ela se integra a ele. E o espaço, por sua vez, amplia a presença da obra. \n\n O que se estabelece não é uma relação comercial, mas uma convergência de visões.É um alinhamento onde diferentes formas de expressão se encontram. `,
-        texto2: `Dessa conexão surgem experiências mais completas, mais sensíveis e mais significativas. \n\n O que se estabelece não é uma relação comercial, mas uma convergência de visões. Um alinhamento onde diferentes formas de expressão se encontram para criar experiências mais completas, mais sensíveis e mais significativas.\n\nPorque no fim, trata-se menos sobre onde cada elemento está — e mais sobre o que eles constroem juntos.`,
+        texto1: `À frente da marca, Deise Rigon conduz uma construção guiada por percepção, intenção e cuidado — valores que se conectam de forma natural com o processo artístico. Não como caminhos paralelos, mas como linguagens que se reconhecem.\n\nNesse encontro, arte e ambiente deixam de ocupar espaços distintos e passam a dialogar de maneira orgânica. A obra não apenas compõe o espaço, ela se integra a ele. E o espaço, por sua vez, amplia a presença da obra. \n\n O que se estabelece não é uma relação comercial, mas uma convergência de visões. `,
+        texto2: `É um alinhamento onde diferentes formas de expressão se encontram. \n\n Dessa conexão surgem experiências mais completas, mais sensíveis e mais significativas. \n\n O que se estabelece não é uma relação comercial, mas uma convergência de visões. Um alinhamento onde diferentes formas de expressão se encontram para criar experiências mais completas, mais sensíveis e mais significativas.\n\nPorque no fim, trata-se menos sobre onde cada elemento está — e mais sobre o que eles constroem juntos.`,
     },
 ]
 
@@ -45,7 +45,7 @@ export default function Conexoes() {
                             </div>
 
                             {/* Col 2 — Texto 1 */}
-                            <div className="rounded-2xl p-5 shadow-sm sm:p-7">
+                            <div className="rounded-2xl p-5  sm:p-7">
                                 <p className="mb-4 text-base font-semibold text-[#08284E]">{c.cargo}</p>
                                 {c.texto1.split('\n\n').map((p, i) => (
                                     <p key={i} className="mb-4 text-sm leading-relaxed text-gray-600 last:mb-0">
@@ -55,7 +55,7 @@ export default function Conexoes() {
                             </div>
 
                             {/* Col 3 — Texto 2 */}
-                            <div className="rounded-2xl p-5 shadow-sm sm:p-7">
+                            <div className="rounded-2xl p-5  sm:p-7">
                                 {c.texto2.split('\n\n').map((p, i) => (
                                     <p key={i} className="mb-4 text-sm leading-relaxed text-gray-600 last:mb-0">
                                         {p}
