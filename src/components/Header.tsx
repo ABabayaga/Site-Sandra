@@ -9,6 +9,7 @@ export default function Header() {
     { label: "COLEÇÕES", href: "#colecoes" },
     { label: "SERIES", href: "#series" },
     { label: "CONEXÕES", href: "#conexoes" },
+    { label: "ENTREGAS", href: "#entregas" },
     { label: "CONTATO", href: "#contato" },
   ];
 

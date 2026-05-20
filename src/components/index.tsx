@@ -2,6 +2,7 @@ import Header from "./Header";
 import Hero from "./Hero";
 import ArtistaCard from "./ArtistaCard";
 import Artista from "./Artista";
+import Spotify from "./Spotify";
 import Colecao from "./Colecao";
 import Series from "./Series";
 import Conexoes from "./Conexoes";
@@ -14,6 +15,7 @@ const Index = () => {
         <Hero />
         <ArtistaCard />
         <Artista />
+        <Spotify />
         <Colecao />
         {/*<Carrosel selectedImage={selectedImage} onSelect={setSelectedImage} />*/}
         <Series />

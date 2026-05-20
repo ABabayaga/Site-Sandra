@@ -25,7 +25,7 @@ export default function Artista() {
                 <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-3">
 
                     {/* Card 1 — Sobre Mim */}
-                    <div className="flex flex-col justify-between rounded-2xl p-6 sm:p-8">
+                    <div className="flex flex-col justify-between h-full rounded-2xl p-6 sm:p-8">
                         <div>
                             <p className="text-[11px] font-bold tracking-[0.2em] text-[#1a1a1a] mb-5">SOBRE MIM</p>
                             <p className="mb-5 text-base leading-snug font-semibold text-[#08284E] sm:mb-6 sm:text-lg">
@@ -47,7 +47,7 @@ export default function Artista() {
                     </div>
 
                     {/* Card 2 — Texto */}
-                    <div className="rounded-2xl p-6 flex flex-col justify-between sm:p-8">
+                    <div className="rounded-2xl p-6 flex flex-col justify-between h-full sm:p-8">
                         <div className="flex flex-col gap-5">
                             <p className="text-sm text-gray-600 leading-relaxed">
                             Com obras marcadas por camadas orgânicas e composições de forte presença visual, a artista cria séries que transitam entre intensidade e silêncio, movimento e contemplação.
@@ -64,7 +64,7 @@ export default function Artista() {
                     </div>
 
                     {/* Card 3 — Foto */}
-                    <div className="overflow-hidden rounded-2xl bg-white shadow-sm min-h-[320px] sm:min-h-0">
+                    <div className="overflow-hidden rounded-2xl bg-white shadow-sm sm:min-h-0">
                         <img
                             src="/artista.png"
                             alt="Sandra Novas"
