@@ -54,7 +54,7 @@ export default function Artista() {
 
                             </p>
                             <p className="text-sm text-gray-600 leading-relaxed">
-                            A Galeria Sandra Novas surge como um espaço de conexão entre arte, percepção e experiência — reunindo trabalhos que convidam o olhar a desacelerar e permanecer.
+                            A Galeria Sandra Novas surge como um espaço de conexão entre arte, percepção e experiência, reunindo trabalhos que convidam o olhar a desacelerar e permanecer.
                             </p>
                             
                         </div>

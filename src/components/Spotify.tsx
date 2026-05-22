@@ -4,7 +4,7 @@ export default function Spotify() {
             <div className="max-w-6xl mx-auto flex justify-center">
                 <iframe
                     style={{ borderRadius: '12px', border: 'none' }}
-                    src="https://open.spotify.com/embed/playlist/3Z8S6U6xhyXHYuK7II5UcH?utm_source=generator&theme=0"
+                    src="https://open.spotify.com/embed/playlist/3Z8S6U6xhyXHYuK7II5UcH?utm_source=generator&theme=0&autoplay=1"
                     width="80%"
                     height="152"
                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
