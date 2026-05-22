@@ -17,7 +17,7 @@ const conexoes = [
 
 export default function Conexoes() {
     return (
-        <section id="conexoes" style={{ backgroundColor: '#F9F2EC' }} className="px-4 py-16 sm:px-6 sm:py-20">
+        <section id="conexoes" style={{ backgroundColor: '#F9F2EC' }} className="px-4 py-16 sm:px-6 sm:py-0 sm:pb-10">
             <div className="max-w-6xl mx-auto">
 
                 {/* Título */}
