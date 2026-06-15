@@ -17,36 +17,6 @@ const series = [
         descricao:
             'Uma coleção dedicada aos instantes de consciência e permanência. Cada obra explora a relação entre presença, percepção e existência, revelando movimentos internos, encontros humanos e energias que ocupam o espaço mesmo quando não são imediatamente visíveis. São trabalhos que convidam o observador a desacelerar e habitar o momento.',
     },
-    {
-        nome: 'Forças Primordiais',
-        imagem: '/BG3.png',
-        descricao:
-            'Inspirada nos elementos fundamentais da natureza e nos impulsos que moldam a vida, esta série investiga energia, expansão, erosão, criação e transformação. As obras carregam intensidade visual e gestual, revelando a potência dos processos naturais e das forças que atuam tanto no mundo exterior quanto na experiência humana.',
-    },
-    {
-        nome: 'Raízes',
-        imagem: '/BG1.png',
-        descricao:
-            'Uma reflexão sobre origem, pertencimento e memória. A série Raízes busca revelar as conexões invisíveis que sustentam nossa existência: histórias, vínculos, heranças afetivas e culturais. As composições sugerem crescimento, permanência e continuidade, lembrando que toda expansão nasce de algo profundamente enraizado.',
-    },
-    {
-        nome: 'Essência',
-        imagem: '/BG.png',
-        descricao:
-            'A busca pelo que permanece quando o excesso é removido. Nesta série, formas, texturas e cores são conduzidas para revelar aquilo que é fundamental, íntimo e verdadeiro. As obras propõem uma experiência de encontro com a própria natureza das coisas, celebrando a simplicidade, a autenticidade e a presença do essencial.',
-    },
-    {
-        nome: 'Ouro em Estado',
-        imagem: '/BG3.png',
-        descricao:
-            'Uma investigação sobre valor, transformação e descoberta. O ouro aparece não apenas como material, mas como símbolo daquilo que é raro, precioso e revelado pelo tempo. As obras exploram contrastes entre matéria e luz, imperfeição e beleza, sugerindo que aquilo que possui verdadeiro valor muitas vezes emerge de processos de transformação.',
-    },
-    {
-        nome: 'Cicatrizes Urbanas',
-        imagem: '/BG3.png',
-        descricao:
-            'Uma leitura poética das marcas deixadas pelo tempo, pela ocupação humana e pela transformação constante das cidades. Texturas, camadas e contrastes evocam paredes, superfícies e vestígios que contam histórias silenciosas. A série propõe um olhar sensível sobre as memórias inscritas nos espaços urbanos e sobre a beleza que pode surgir da imperfeição e do desgaste.',
-    },
 ]
 
 export default function Series() {

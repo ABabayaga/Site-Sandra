@@ -16,7 +16,7 @@ const Index = () => {
         <ArtistaCard />
         <Artista />
         <Spotify />
-        <Colecao />
+        {/*<Colecao />*/}
         {/*<Carrosel selectedImage={selectedImage} onSelect={setSelectedImage} />*/}
         <Series />
         <Conexoes />
