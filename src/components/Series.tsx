@@ -60,7 +60,7 @@ export default function Series() {
                             </div>
 
                             {/* Nome */}
-                            <p className="w-full shrink-0 text-xs font-bold tracking-[0.15em] text-white md:w-36">
+                            <p className="w-full shrink-0 text-xs font-bold uppercase tracking-[0.15em] text-white md:w-36">
                                 {s.nome}
                             </p>
 

@@ -5,43 +5,44 @@ const obras = [
         serie: 'SÉRIE TRANSIÇÕES',
         titulo: 'ENCONTRO DE FORÇAS',
         dimensoes: '2,00 x 2,20',
-        imagem: '/serie1.png',
+        imagens: ['/str1.jpg', '/str2.jpg', '/str3.jpg'],
     },
     {
         serie: 'SÉRIES CICLOS',
         titulo: 'ENERGIA VITAL',
         dimensoes: '1,20 x 1,00',
-        imagem: '/serie2.png',
+        imagens: ['/sci1.jpg', '/sci2.jpg'],
     },
     {
         serie: 'SÉRIE GOTEJAMENTO',
         titulo: 'MOVIMENTO E FLUXO',
         dimensoes: '1,00 x 1,00',
-        imagem: '/serie3.png',
+        imagens: ['/sgo1.jpg', '/sgo2.png'],
     },
     {
         serie: 'SÉRIE INTENSIDADE',
         titulo: 'ENERGIA INCANDESCENTE',
         dimensoes: '0,80 x 0,80',
-        imagem: '/serie4.png',
+        imagens: ['/sin1.png', '/sin2.png'],
     },
     {
         serie: 'SÉRIE MAR',
         titulo: 'PROFUNDIDADE AZUL',
         dimensoes: '2,00 x 1,20',
-        imagem: '/serie5.png',
+        imagens: ['/sma1.png', '/sma2.png', '/sma3.png'],
     },
     {
         serie: 'SÉRIE CONEXÕES',
         titulo: 'RAÍZES INVISÍVEIS',
         dimensoes: '2,00 x 1,20',
-        imagem: '/serie6.png',
+        imagens: ['/sco1.jpg', '/sco2.jpg'],
     },
 ]
 
-function SlideshowModal({ initialIndex, onClose }: { initialIndex: number; onClose: () => void }) {
-    const [current, setCurrent] = useState(initialIndex)
+function SlideshowModal({ obra, onClose }: { obra: typeof obras[0]; onClose: () => void }) {
+    const [current, setCurrent] = useState(0)
     const [visible, setVisible] = useState(false)
+    const total = obra.imagens.length
 
     useEffect(() => {
         requestAnimationFrame(() => setVisible(true))
@@ -58,8 +59,8 @@ function SlideshowModal({ initialIndex, onClose }: { initialIndex: number; onClo
         }
     }, [])
 
-    const nextSlide = () => setCurrent((prev) => (prev + 1) % obras.length)
-    const prevSlide = () => setCurrent((prev) => (prev - 1 + obras.length) % obras.length)
+    const nextSlide = () => setCurrent((prev) => (prev + 1) % total)
+    const prevSlide = () => setCurrent((prev) => (prev - 1 + total) % total)
 
     const handleClose = () => {
         setVisible(false)
@@ -72,22 +73,22 @@ function SlideshowModal({ initialIndex, onClose }: { initialIndex: number; onClo
             onClick={handleClose}
         >
             {/* Slides */}
-            {obras.map((obra, i) => (
+            {obra.imagens.map((imagem, i) => (
                 <div
                     key={i}
-                    className={`absolute inset-0 transition-opacity duration-500 ${i === current ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
-                    style={{
-                        backgroundImage: `url(${obra.imagem})`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                    }}
+                    className={`absolute inset-0 flex flex-col items-center justify-center transition-opacity duration-500 ${i === current ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
                     onClick={(e) => e.stopPropagation()}
                 >
-                    {/* Gradient overlay + info */}
-                    <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 via-black/30 to-transparent px-8 pb-20 pt-32">
-                        <p className="text-white/70 text-[10px] tracking-[0.22em] mb-2">{obra.serie}</p>
-                        <p className="text-white text-2xl font-serif tracking-wide">{obra.titulo}</p>
-                        <p className="text-white/50 text-xs mt-2 tracking-widest">{obra.dimensoes}</p>
+                    <img
+                        src={imagem}
+                        alt={obra.titulo}
+                        className="max-h-[75vh] max-w-[85vw] object-contain drop-shadow-2xl"
+                    />
+                    {/* Info abaixo da imagem */}
+                    <div className="mt-6 text-center px-8">
+                        <p className="text-white/50 text-[10px] tracking-[0.22em] mb-1">{obra.serie}</p>
+                        <p className="text-white text-lg font-serif tracking-wide">{obra.titulo}</p>
+                        <p className="text-white/40 text-xs mt-1 tracking-widest">{obra.dimensoes}</p>
                     </div>
                 </div>
             ))}
@@ -118,12 +119,12 @@ function SlideshowModal({ initialIndex, onClose }: { initialIndex: number; onClo
 
             {/* Counter */}
             <div className="absolute bottom-6 right-8 z-10 text-white/60 text-xs tracking-[0.2em]">
-                0{current + 1} / 0{obras.length}
+                0{current + 1} / 0{total}
             </div>
 
             {/* Dots */}
             <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex gap-2">
-                {obras.map((_, i) => (
+                {obra.imagens.map((_, i) => (
                     <button
                         key={i}
                         onClick={(e) => { e.stopPropagation(); setCurrent(i) }}
@@ -135,11 +136,11 @@ function SlideshowModal({ initialIndex, onClose }: { initialIndex: number; onClo
     )
 }
 
-function CardObra({ serie, titulo, dimensoes, imagem, onVerMais }: typeof obras[0] & { onVerMais: () => void }) {
+function CardObra({ serie, titulo, dimensoes, imagens, onVerMais }: typeof obras[0] & { onVerMais: () => void }) {
     return (
         <div className="group relative overflow-hidden rounded-2xl shadow-sm cursor-pointer">
             <img
-                src={imagem}
+                src={imagens[0]}
                 alt={serie}
                 className="h-72 w-full object-cover sm:h-80 md:h-96"
             />
@@ -151,7 +152,7 @@ function CardObra({ serie, titulo, dimensoes, imagem, onVerMais }: typeof obras[
             <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4">
                 <button
                     onClick={onVerMais}
-                    className="rounded-full border border-white/40 px-3 py-1 text-[10px] tracking-[0.16em] text-white transition-colors hover:bg-white/10 sm:px-4 sm:tracking-widest"
+                    className="rounded-full bg-blue-700/50 border border-white/30 px-3 py-1 text-[10px] tracking-[0.16em] text-white transition-colors hover:bg-white/30 sm:px-4 sm:tracking-widest"
                 >
                     VER MAIS
                 </button>
@@ -161,7 +162,7 @@ function CardObra({ serie, titulo, dimensoes, imagem, onVerMais }: typeof obras[
 }
 
 export default function Colecao() {
-    const [modalIndex, setModalIndex] = useState<number | null>(null)
+    const [modalObra, setModalObra] = useState<typeof obras[0] | null>(null)
 
     return (
         <section id='colecoes' style={{ backgroundColor: '#F9F2EC' }} className="px-4 py-16 sm:px-6 sm:py-0">
@@ -184,18 +185,18 @@ export default function Colecao() {
 
                 {/* Grid 3x2 */}
                 <div className="mb-10 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 md:grid-cols-3 sm:mb-14">
-                    {obras.map((obra, i) => (
-                        <CardObra key={obra.serie} {...obra} onVerMais={() => setModalIndex(i)} />
+                    {obras.map((obra) => (
+                        <CardObra key={obra.serie} {...obra} onVerMais={() => setModalObra(obra)} />
                     ))}
                 </div>
 
             </div>
 
             {/* Modal Slideshow */}
-            {modalIndex !== null && (
+            {modalObra !== null && (
                 <SlideshowModal
-                    initialIndex={modalIndex}
-                    onClose={() => setModalIndex(null)}
+                    obra={modalObra}
+                    onClose={() => setModalObra(null)}
                 />
             )}
         </section>
