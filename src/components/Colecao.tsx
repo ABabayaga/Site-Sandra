@@ -165,7 +165,7 @@ export default function Colecao() {
     const [modalObra, setModalObra] = useState<typeof obras[0] | null>(null)
 
     return (
-        <section id='colecoes' style={{ backgroundColor: '#F9F2EC' }} className="px-4 py-16 sm:px-6 sm:py-0">
+        <section id='colecoes' style={{ backgroundColor: '#F9F2EC' }} className="px-4 py-10 sm:px-6 sm:py-0">
             <div className="max-w-6xl mx-auto">
 
                 {/* Topo: logo + título */}

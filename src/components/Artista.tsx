@@ -1,6 +1,6 @@
 export default function Artista() {
     return (
-        <section id="artista" style={{ backgroundColor: '#F9F2EC' }} className="px-4 pt-28 pb-16 sm:px-6 sm:pt-18 sm:pb-0">
+        <section id="artista" style={{ backgroundColor: '#F9F2EC' }} className="px-4 pt-12 pb-10 sm:px-6 sm:pt-18 sm:pb-0">
             <div className="max-w-6xl mx-auto">
 
                 {/* Topo: logo + título */}

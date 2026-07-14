@@ -100,9 +100,16 @@ export default function Header() {
                         <Link
                           to={`/series/${s.slug}`}
                           onClick={() => setSeriesMenuOpen(false)}
-                          className="block w-full rounded-lg px-3 py-2 text-left lowercase text-[12px] tracking-wide text-[#D9BC9A] transition-colors duration-200 hover:text-white hover:bg-white/5"
+                          className="group/item flex w-full items-center justify-between gap-2 rounded-lg px-3 py-2 text-left uppercase text-[12px] tracking-wide text-[#D9BC9A] transition-colors duration-200 hover:text-white hover:bg-white/5"
                         >
                           {s.nome}
+                          <svg
+                            className="h-3 w-3 shrink-0 text-[#D9BC9A]/60 transition-transform duration-200 group-hover/item:translate-x-0.5 group-hover/item:text-white"
+                            viewBox="0 0 12 12"
+                            fill="none"
+                          >
+                            <path d="M4 2.5L8 6l-4 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
                         </Link>
                       </li>
                     ))}
@@ -134,9 +141,31 @@ export default function Header() {
             </a>
           </div>
 
+          {/* Links principais — mobile */}
+          <div className="relative z-10 flex items-center gap-3.5 sm:gap-5 lg:hidden">
+            <a
+              href="/#artista"
+              className="text-[10px] font-medium uppercase tracking-widest text-[#fba13b] transition-colors duration-200 hover:text-white"
+            >
+              ARTISTA
+            </a>
+            <a
+              href="/#colecoes"
+              className="text-[10px] font-medium uppercase tracking-widest text-[#fba13b] transition-colors duration-200 hover:text-white"
+            >
+              COLEÇÕES
+            </a>
+            <a
+              href="/#contato"
+              className="text-[10px] font-medium uppercase tracking-widest text-[#fba13b] transition-colors duration-200 hover:text-white"
+            >
+              CONTATO
+            </a>
+          </div>
+
           {/* Hamburger — mobile */}
           <button
-            className="relative z-10 flex h-9 w-9 items-center justify-center gap-1.5 self-center lg:hidden"
+            className="relative z-10 flex h-9 w-9 flex-col items-center justify-center gap-1.5 self-center lg:hidden"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Menu"
           >
@@ -161,23 +190,6 @@ export default function Header() {
                 HOME
               </a>
             </li>
-            <li>
-              <a
-                href="/#artista"
-                className="block rounded-xl px-4 py-2.5 text-[11px] font-medium uppercase tracking-[0.16em] text-[#D9BC9A] transition-colors duration-200 hover:text-white hover:bg-white/5"
-              >
-                ARTISTA
-              </a>
-            </li>
-            <li>
-              <a
-                href="/#colecoes"
-                className="block rounded-xl px-4 py-2.5 text-[11px] font-medium uppercase tracking-[0.16em] text-[#D9BC9A] transition-colors duration-200 hover:text-white hover:bg-white/5"
-              >
-                COLEÇÕES
-              </a>
-            </li>
-
             {/* SERIES — dropdown mobile */}
             <li>
               <button
@@ -204,9 +216,16 @@ export default function Header() {
                         <Link
                           to={`/series/${s.slug}`}
                           onClick={() => { setSeriesMenuOpen(false); setMenuOpen(false); }}
-                          className="block w-full rounded-lg px-3 py-2 text-left lowercase text-[11px] tracking-wide text-[#D9BC9A] transition-colors duration-200 hover:text-white hover:bg-white/5"
+                          className="flex w-full items-center justify-between gap-2 rounded-lg px-3 py-2 text-left uppercase text-[11px] tracking-wide text-[#D9BC9A] transition-colors duration-200 hover:text-white hover:bg-white/5"
                         >
                           {s.nome}
+                          <svg
+                            className="h-3 w-3 shrink-0 text-[#D9BC9A]/60"
+                            viewBox="0 0 12 12"
+                            fill="none"
+                          >
+                            <path d="M4 2.5L8 6l-4 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
                         </Link>
                       </li>
                     ))}
@@ -229,14 +248,6 @@ export default function Header() {
                 className="block rounded-xl px-4 py-2.5 text-[11px] font-medium uppercase tracking-[0.16em] text-[#D9BC9A] transition-colors duration-200 hover:text-white hover:bg-white/5"
               >
                 ENTREGAS
-              </a>
-            </li>
-            <li>
-              <a
-                href="/#contato"
-                className="block rounded-xl px-4 py-2.5 text-[11px] font-medium uppercase tracking-[0.16em] text-[#D9BC9A] transition-colors duration-200 hover:text-white hover:bg-white/5"
-              >
-                CONTATO
               </a>
             </li>
           </ul>

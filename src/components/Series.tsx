@@ -8,7 +8,7 @@ export default function Series({ only }: SeriesProps) {
     const visibleSeries = only ? series.filter((s) => s.nome === only) : series.slice(0, 3)
 
     return (
-        <section id={only ? undefined : 'series'} style={{ backgroundColor: '#F9F2EC' }} className="px-4 py-16 sm:px-6 sm:py-0 sm:pb-10">
+        <section id={only ? undefined : 'series'} style={{ backgroundColor: '#F9F2EC' }} className="px-4 py-6 sm:px-6 sm:py-0 sm:pb-10">
             <div className="max-w-6xl mx-auto">
 
                 {/* Topo: logo + título */}
