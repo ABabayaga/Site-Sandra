@@ -23,7 +23,7 @@ export default function Series({ only }: SeriesProps) {
                     </div>*/}
 
                     <div className="w-full max-w-2xl rounded-2xl px-4 py-4 text-center sm:px-12 sm:py-6">
-                        <h2 className="mb-3 text-3xl font-serif text-[#1a1a1a] sm:text-4xl">Séries</h2>
+                        <h2 className="mb-3 text-3xl font-serif text-[#1a1a1a] sm:text-4xl">— Séries —</h2>
                         <p className="text-sm text-gray-700 leading-relaxed">
                             Cada série nasce de um estado interno, uma forma de perceber e traduzir o mundo
                         </p>

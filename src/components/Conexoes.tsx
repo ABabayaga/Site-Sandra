@@ -23,7 +23,7 @@ export default function Conexoes() {
                 {/* Título */}
                 <div className="mb-10 flex justify-center sm:mb-14">
                     <div className="rounded-2xl px-6 py-3 sm:px-14 sm:py-4">
-                        <h2 className="text-2xl font-serif text-[#1a1a1a] sm:text-3xl">Conexões</h2>
+                        <h2 className="text-2xl font-serif text-[#1a1a1a] sm:text-3xl">— Conexões —</h2>
                     </div>
                 </div>
 
