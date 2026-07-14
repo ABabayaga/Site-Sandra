@@ -15,7 +15,7 @@ export default function ArtistaCard() {
                     <div className="flex-1 h-px bg-[#C9A96E] opacity-70" />
                 </div>
             </div>
-            <div className="hidden flex-1 sm:block" />
+            <div className="hidden flex-1 sm:block" style={{ backgroundColor: '' }} />
         </section>
     );
 }

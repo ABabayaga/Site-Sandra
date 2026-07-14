@@ -184,7 +184,7 @@ export default function Colecao() {
                 </div>
 
                 {/* Grid 3x2 */}
-                <div className="mb-10 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 md:grid-cols-3 sm:mb-14">
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 md:grid-cols-3">
                     {obras.map((obra) => (
                         <CardObra key={obra.serie} {...obra} onVerMais={() => setModalObra(obra)} />
                     ))}

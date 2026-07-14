@@ -1,27 +1,14 @@
-const series = [
-    {
-        nome: 'Arquiteturas do Invisível',
-        imagem: '/BG1.png',
-        descricao:
-            'A série Arquiteturas do Invisível investiga as estruturas intangíveis que moldam nossa experiência no mundo, como memórias, afetos, silêncios, intuições e encontros, revelando por meio de camadas, texturas, fluxos e geometrias orgânicas a arquitetura silenciosa das forças invisíveis que sustentam, conectam e transformam a existência humana entre a ordem e o acaso, a presença e a ausência.',
-    },
-    {
-        nome: 'Mar',
-        imagem: '/BG.png',
-        descricao:
-            'Uma investigação sobre movimento, profundidade e transformação. As obras da série Mar não representam a paisagem marítima de forma literal; evocam suas forças invisíveis, seus encontros e correntes, os fluxos que aproximam, afastam e conectam. São composições que convidam à contemplação e ao silêncio, como quem observa o horizonte e encontra nele reflexos de si mesmo.',
-    },
-    {
-        nome: 'Estado de Presença',
-        imagem: '/BG3.png',
-        descricao:
-            'Uma coleção dedicada aos instantes de consciência e permanência. Cada obra explora a relação entre presença, percepção e existência, revelando movimentos internos, encontros humanos e energias que ocupam o espaço mesmo quando não são imediatamente visíveis. São trabalhos que convidam o observador a desacelerar e habitar o momento.',
-    },
-]
+import { series } from '../data/series'
 
-export default function Series() {
+interface SeriesProps {
+    only?: string;
+}
+
+export default function Series({ only }: SeriesProps) {
+    const visibleSeries = only ? series.filter((s) => s.nome === only) : series.slice(0, 3)
+
     return (
-        <section id="series" style={{ backgroundColor: '#F9F2EC' }} className="px-4 py-16 sm:px-6 sm:py-0 sm:pb-10">
+        <section id={only ? undefined : 'series'} style={{ backgroundColor: '#F9F2EC' }} className="px-4 py-16 sm:px-6 sm:py-0 sm:pb-10">
             <div className="max-w-6xl mx-auto">
 
                 {/* Topo: logo + título */}
@@ -45,7 +32,7 @@ export default function Series() {
 
                 {/* Linhas de séries */}
                 <div className="flex flex-col gap-4 sm:gap-6">
-                    {series.map((s) => (
+                    {visibleSeries.map((s) => (
                         <div
                             key={s.nome}
                             className="flex flex-col gap-4 rounded-2xl bg-[#08284E] px-4 py-4 shadow-sm sm:px-6 sm:py-5 md:flex-row md:items-center md:gap-6"

@@ -1,62 +1,8 @@
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
+import { series } from "../data/series";
 
-const extraSeries = [
-  {
-    nome: "Forças Primordiais",
-    descricao:
-      "Inspirada nos elementos fundamentais da natureza e nos impulsos que moldam a vida, esta série investiga energia, expansão, erosão, criação e transformação. As obras carregam intensidade visual e gestual, revelando a potência dos processos naturais e das forças.",
-  },
-  {
-    nome: "Raízes",
-    descricao:
-      "Uma reflexão sobre origem, pertencimento e memória. A série Raízes busca revelar as conexões invisíveis que sustentam nossa existência: histórias, vínculos, heranças afetivas e culturais. As composições sugerem crescimento, permanência e continuidade, lembrando que toda expansão nasce de algo profundamente enraizado.",
-  },
-  {
-    nome: "Essência",
-    descricao:
-      "A busca pelo que permanece quando o excesso é removido. Nesta série, formas, texturas e cores são conduzidas para revelar aquilo que é fundamental, íntimo e verdadeiro. As obras propõem uma experiência de encontro com a própria natureza das coisas, celebrando a simplicidade, a autenticidade e a presença do essencial.",
-  },
-  {
-    nome: "Ouro em Estado",
-    descricao:
-      "Uma investigação sobre valor, transformação e descoberta. O ouro aparece não apenas como material, mas como símbolo daquilo que é raro, precioso e revelado pelo tempo. As obras exploram contrastes entre matéria e luz, imperfeição e beleza, sugerindo que aquilo que possui verdadeiro valor muitas vezes emerge de processos de transformação.",
-  },
-  {
-    nome: "Cicatrizes Urbanas",
-    descricao:
-      "Uma leitura poética das marcas deixadas pelo tempo, pela ocupação humana e pela transformação constante das cidades. Texturas, camadas e contrastes evocam paredes, superfícies e vestígios que contam histórias silenciosas. A série propõe um olhar sensível sobre as memórias inscritas nos espaços urbanos e sobre a beleza que pode surgir da imperfeição e do desgaste.",
-  },
-];
-
-function SeriesSubItem({ nome, descricao }: { nome: string; descricao: string }) {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <li>
-      <button
-        onClick={() => setOpen((v) => !v)}
-        aria-expanded={open}
-        className="flex w-full items-center justify-between gap-2 rounded-lg px-3 py-2 text-left lowercase text-[12px] tracking-wide text-[#D9BC9A] bg-transparent border-none cursor-pointer transition-colors duration-200 hover:text-white hover:bg-white/5"
-      >
-        <span>{nome}</span>
-        <span
-          className={`shrink-0 text-[10px] leading-none transition-transform duration-300 ${open ? "rotate-45" : ""}`}
-        >
-          +
-        </span>
-      </button>
-      <div
-        className={`grid overflow-hidden transition-[grid-template-rows] duration-300 ease-out ${open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
-      >
-        <div className="overflow-hidden">
-          <p className="px-3 pb-3 pt-1 text-[11px] normal-case leading-relaxed text-white/60">
-            {descricao}
-          </p>
-        </div>
-      </div>
-    </li>
-  );
-}
+const extraSeries = series.slice(3);
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -94,7 +40,7 @@ export default function Header() {
           <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-white/10" />
 
           {/* Logo */}
-          <a href="#" className="relative z-10 flex shrink-0 items-center">
+          <a href="/" className="relative z-10 flex shrink-0 items-center">
             <img
               src="/logo.png"
               className="h-10 object-contain sm:h-24"
@@ -105,21 +51,21 @@ export default function Header() {
           {/* Links — desktop */}
           <div className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 lg:flex">
             <a
-              href="#"
+              href="/"
               className="group relative flex flex-col items-center gap-0.5 text-[13px] font-medium uppercase tracking-[0.16em] text-[#fba13b] transition-colors duration-200 hover:text-white"
             >
               HOME
               <span className="block h-px w-0 bg-[#fba13b] transition-all duration-300 group-hover:w-full" />
             </a>
             <a
-              href="#artista"
+              href="/#artista"
               className="group relative flex flex-col items-center gap-0.5 text-[13px] font-medium uppercase tracking-[0.16em] text-[#fba13b] transition-colors duration-200 hover:text-white"
             >
               ARTISTA
               <span className="block h-px w-0 bg-[#fba13b] transition-all duration-300 group-hover:w-full" />
             </a>
             <a
-              href="#colecoes"
+              href="/#colecoes"
               className="group relative flex flex-col items-center gap-0.5 text-[13px] font-medium uppercase tracking-[0.16em] text-[#fba13b] transition-colors duration-200 hover:text-white"
             >
               COLEÇÕES
@@ -147,10 +93,18 @@ export default function Header() {
               </button>
 
               {seriesMenuOpen && (
-                <div className="animate-[fadeSlideIn_0.3s_ease-out_both] absolute left-1/2 top-full mt-3 w-72 -translate-x-1/2 rounded-2xl border border-white/10 bg-[#08284E]/95 p-2 shadow-xl backdrop-blur-xl">
+                <div className="animate-[fadeSlideIn_0.3s_ease-out_both] absolute left-1/2 top-full mt-3 w-64 -translate-x-1/2 rounded-2xl border border-white/10 bg-[#08284E]/95 p-2 shadow-xl backdrop-blur-xl">
                   <ul className="flex flex-col gap-0.5">
                     {extraSeries.map((s) => (
-                      <SeriesSubItem key={s.nome} nome={s.nome} descricao={s.descricao} />
+                      <li key={s.nome}>
+                        <Link
+                          to={`/series/${s.slug}`}
+                          onClick={() => setSeriesMenuOpen(false)}
+                          className="block w-full rounded-lg px-3 py-2 text-left lowercase text-[12px] tracking-wide text-[#D9BC9A] transition-colors duration-200 hover:text-white hover:bg-white/5"
+                        >
+                          {s.nome}
+                        </Link>
+                      </li>
                     ))}
                   </ul>
                 </div>
@@ -158,21 +112,21 @@ export default function Header() {
             </div>
 
             <a
-              href="#conexoes"
+              href="/#conexoes"
               className="group relative flex flex-col items-center gap-0.5 text-[13px] font-medium uppercase tracking-[0.16em] text-[#fba13b] transition-colors duration-200 hover:text-white"
             >
               CONEXÕES
               <span className="block h-px w-0 bg-[#fba13b] transition-all duration-300 group-hover:w-full" />
             </a>
             <a
-              href="#entregas"
+              href="/#entregas"
               className="group relative flex flex-col items-center gap-0.5 text-[13px] font-medium uppercase tracking-[0.16em] text-[#fba13b] transition-colors duration-200 hover:text-white"
             >
               ENTREGAS
               <span className="block h-px w-0 bg-[#fba13b] transition-all duration-300 group-hover:w-full" />
             </a>
             <a
-              href="#contato"
+              href="/#contato"
               className="group relative flex flex-col items-center gap-0.5 text-[13px] font-medium uppercase tracking-[0.16em] text-[#fba13b] transition-colors duration-200 hover:text-white"
             >
               CONTATO
@@ -201,7 +155,7 @@ export default function Header() {
           <ul className="flex flex-col px-4 py-3 gap-1">
             <li>
               <a
-                href="#"
+                href="/"
                 className="block rounded-xl px-4 py-2.5 text-[11px] font-medium uppercase tracking-[0.16em] text-[#D9BC9A] transition-colors duration-200 hover:text-white hover:bg-white/5"
               >
                 HOME
@@ -209,7 +163,7 @@ export default function Header() {
             </li>
             <li>
               <a
-                href="#artista"
+                href="/#artista"
                 className="block rounded-xl px-4 py-2.5 text-[11px] font-medium uppercase tracking-[0.16em] text-[#D9BC9A] transition-colors duration-200 hover:text-white hover:bg-white/5"
               >
                 ARTISTA
@@ -217,7 +171,7 @@ export default function Header() {
             </li>
             <li>
               <a
-                href="#colecoes"
+                href="/#colecoes"
                 className="block rounded-xl px-4 py-2.5 text-[11px] font-medium uppercase tracking-[0.16em] text-[#D9BC9A] transition-colors duration-200 hover:text-white hover:bg-white/5"
               >
                 COLEÇÕES
@@ -246,7 +200,15 @@ export default function Header() {
                 <div className="overflow-hidden pl-3">
                   <ul className="flex flex-col gap-0.5 py-1">
                     {extraSeries.map((s) => (
-                      <SeriesSubItem key={s.nome} nome={s.nome} descricao={s.descricao} />
+                      <li key={s.nome}>
+                        <Link
+                          to={`/series/${s.slug}`}
+                          onClick={() => { setSeriesMenuOpen(false); setMenuOpen(false); }}
+                          className="block w-full rounded-lg px-3 py-2 text-left lowercase text-[11px] tracking-wide text-[#D9BC9A] transition-colors duration-200 hover:text-white hover:bg-white/5"
+                        >
+                          {s.nome}
+                        </Link>
+                      </li>
                     ))}
                   </ul>
                 </div>
@@ -255,7 +217,7 @@ export default function Header() {
 
             <li>
               <a
-                href="#conexoes"
+                href="/#conexoes"
                 className="block rounded-xl px-4 py-2.5 text-[11px] font-medium uppercase tracking-[0.16em] text-[#D9BC9A] transition-colors duration-200 hover:text-white hover:bg-white/5"
               >
                 CONEXÕES
@@ -263,7 +225,7 @@ export default function Header() {
             </li>
             <li>
               <a
-                href="#entregas"
+                href="/#entregas"
                 className="block rounded-xl px-4 py-2.5 text-[11px] font-medium uppercase tracking-[0.16em] text-[#D9BC9A] transition-colors duration-200 hover:text-white hover:bg-white/5"
               >
                 ENTREGAS
@@ -271,7 +233,7 @@ export default function Header() {
             </li>
             <li>
               <a
-                href="#contato"
+                href="/#contato"
                 className="block rounded-xl px-4 py-2.5 text-[11px] font-medium uppercase tracking-[0.16em] text-[#D9BC9A] transition-colors duration-200 hover:text-white hover:bg-white/5"
               >
                 CONTATO
