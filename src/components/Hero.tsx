@@ -42,7 +42,7 @@ export default function Hero() {
                     </a>
                     <a
                         href="#artista"
-                        className="flex min-h-12 items-center justify-center rounded-md border border-white bg-black/30 px-6 py-3 text-center text-[11px] uppercase tracking-[0.22em] text-white backdrop-blur-sm transition-colors shadow-lg hover:bg-white hover:text-gray-900 sm:px-8 sm:text-xs sm:tracking-widest"
+                        className="flex min-h-12 items-center justify-center rounded-md border border-white bg-black/60 px-6 py-3 text-center text-[11px] uppercase tracking-[0.22em] text-white backdrop-blur-sm transition-colors shadow-lg hover:bg-white hover:text-gray-900 sm:px-8 sm:text-xs sm:tracking-widest"
                     >
                         Sobre a Artista
                     </a>
