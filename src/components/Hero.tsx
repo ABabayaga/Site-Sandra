@@ -36,13 +36,13 @@ export default function Hero() {
                 <div className="flex w-full max-w-sm flex-col gap-3 sm:max-w-none sm:flex-row sm:justify-center sm:gap-4">
                     <a
                         href="#colecoes"
-                        className="rounded-md bg-yellow-700 px-6 py-3 text-center text-[11px] uppercase tracking-[0.22em] text-white transition-colors shadow-lg hover:bg-yellow-600 sm:px-8 sm:text-xs sm:tracking-widest"
+                        className="flex min-h-12 items-center justify-center rounded-md bg-yellow-700 px-6 py-3 text-center text-[11px] uppercase tracking-[0.22em] text-white transition-colors shadow-lg hover:bg-yellow-600 sm:px-8 sm:text-xs sm:tracking-widest"
                     >
                         Ver Obras
                     </a>
                     <a
                         href="#artista"
-                        className="rounded-md border border-white px-6 py-3 text-center text-[11px] uppercase tracking-[0.22em] text-white transition-colors shadow-lg hover:bg-white hover:text-gray-900 sm:px-8 sm:text-xs sm:tracking-widest"
+                        className="flex min-h-12 items-center justify-center rounded-md border border-white bg-black/30 px-6 py-3 text-center text-[11px] uppercase tracking-[0.22em] text-white backdrop-blur-sm transition-colors shadow-lg hover:bg-white hover:text-gray-900 sm:px-8 sm:text-xs sm:tracking-widest"
                     >
                         Sobre a Artista
                     </a>

@@ -7,7 +7,7 @@ export default function Spotify() {
                 </p>
             </div>
             <div className="max-w-6xl mx-auto flex justify-center">
-                <iframe data-testid="embed-iframe" style={{ borderRadius: '12px' }} src="https://open.spotify.com/embed/playlist/5Z0jXU6Jues4cOMIsbcS47?utm_source=generator&si=34f1fd1905054186" width="100%" height="152" allowFullScreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <iframe data-testid="embed-iframe" title="Player do Spotify com a playlist da série Contemplação" style={{ borderRadius: '12px' }} src="https://open.spotify.com/embed/playlist/5Z0jXU6Jues4cOMIsbcS47?utm_source=generator&si=34f1fd1905054186" width="100%" height="152" allowFullScreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             </div>
         </section>
     )
