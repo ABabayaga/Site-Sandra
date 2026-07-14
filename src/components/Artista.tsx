@@ -47,7 +47,7 @@ export default function Artista() {
                     </div>
 
                     {/* Card 2 — Texto */}
-                    <div className="rounded-2xl p-6 flex flex-col justify-between h-full sm:p-8">
+                    <div className="rounded-2xl p-6 flex flex-col justify-between h-full sm:p-8 md:pt-16">
                         <div className="flex flex-col gap-5">
                             <p className="text-sm text-gray-600 leading-relaxed">
                             Com obras marcadas por camadas orgânicas e composições de forte presença visual, a artista cria séries que transitam entre intensidade e silêncio, movimento e contemplação.
