@@ -1,6 +1,6 @@
 export default function Hero() {
     return (
-        <section className="relative min-h-screen w-full overflow-hidden">
+        <section className="relative min-h-screen w-full">
             <video
                 autoPlay
                 loop
@@ -48,6 +48,21 @@ export default function Hero() {
                     </a>
                 </div>
             </div>
+
+            <a
+                href="#artista"
+                className="absolute bottom-0 left-0 z-20 flex h-24 w-[calc(100%-2rem)] translate-y-1/2 flex-col justify-center bg-[#08284E] px-8 text-white shadow-2xl transition-transform hover:scale-[1.01] sm:h-32 sm:w-[42rem] sm:px-16 lg:w-[46rem]"
+            >
+                <span className="mb-4 text-2xl font-light uppercase tracking-[0.16em] sm:mb-6 sm:text-4xl sm:tracking-[0.18em]">
+                    Sobre a Artista
+                </span>
+                <span className="flex w-full items-center gap-8">
+                    <span className="text-[10px] uppercase tracking-[0.4em] text-[#C9A96E] sm:text-xs">
+                        Sandra Novas
+                    </span>
+                    <span className="h-px flex-1 bg-[#C9A96E]" />
+                </span>
+            </a>
         </section>
     )
 }

@@ -1,6 +1,5 @@
 import Header from "./Header";
 import Hero from "./Hero";
-import ArtistaCard from "./ArtistaCard";
 import Artista from "./Artista";
 import Spotify from "./Spotify";
 import Colecao from "./Colecao";
@@ -13,7 +12,6 @@ const Index = () => {
       <main>
         <Header />
         <Hero />
-        <ArtistaCard />
         <Artista />
         <Spotify />
         <Colecao />

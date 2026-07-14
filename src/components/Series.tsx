@@ -12,7 +12,7 @@ export default function Series({ only }: SeriesProps) {
             <div className="max-w-6xl mx-auto">
 
                 {/* Topo: logo + título */}
-                <div className="mb-10 flex flex-col items-center gap-4 sm:mb-14">
+                <div className="mb-10 pt-10 flex flex-col items-center gap-4 sm:mb-2">
                 {/*<div className="text-center">
                         <img src="/logo2.png" alt="SN Logo" className="mx-auto mb-3 h-28 sm:mb-4 sm:h-44" />
                         <div className="flex items-center justify-center gap-3 sm:gap-4">
@@ -23,7 +23,7 @@ export default function Series({ only }: SeriesProps) {
                     </div>*/}
 
                     <div className="w-full max-w-2xl rounded-2xl px-4 py-4 text-center sm:px-12 sm:py-6">
-                        <h2 className="mb-3 text-3xl font-serif text-[#1a1a1a] sm:text-4xl">SÉRIES</h2>
+                        <h2 className="mb-3 text-3xl font-serif text-[#1a1a1a] sm:text-4xl">Séries</h2>
                         <p className="text-sm text-gray-700 leading-relaxed">
                             Cada série nasce de um estado interno, uma forma de perceber e traduzir o mundo
                         </p>
