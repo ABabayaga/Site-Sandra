@@ -38,9 +38,7 @@ export default function Artista() {
                             </p>
                         </div>
                         <div className="mt-6 sm:mt-8">
-                            <p className="text-2xl text-[#1a1a1a] mb-1" style={{ fontFamily: 'cursive' }}>
-                                sandra novas
-                            </p>
+                            <img src="/ass.png" alt="Assinatura Sandra Novas" className="h-19 mb-1" />
                             <p className="font-semibold text-[#1a1a1a] text-sm">Sandra Novas</p>
                             <p className="text-xs text-gray-600">Artista visual</p>
                         </div>
