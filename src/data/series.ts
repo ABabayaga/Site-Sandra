@@ -47,7 +47,7 @@ const rawSeries: Omit<Serie, 'slug'>[] = [
     },
     {
         nome: 'Essência',
-        imagem: '/BG3.png',
+        imagem: '/memo.png',
         descricao:
             'A busca pelo que permanece quando o excesso é removido. Nesta série, formas, texturas e cores são conduzidas para revelar aquilo que é fundamental, íntimo e verdadeiro. As obras propõem uma experiência de encontro com a própria natureza das coisas, celebrando a simplicidade, a autenticidade e a presença do essencial.',
     },
