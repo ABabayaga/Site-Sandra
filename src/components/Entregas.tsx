@@ -5,19 +5,19 @@ const entregas = [
     {
         imagem: '/ent1.png',
         titulo: 'Entrega Realizada',
-        local: 'Rua Tajuba, 59 — Alphaville 3, Campo Grande/MS',
+        local: 'Alphaville 3, Campo Grande/MS',
         posicao: '75% 45%',
     },
     {
         imagem: '/ent2.png',
-        titulo: 'Entrega Realizada',
-        local: 'Endereço da entrega',
+        titulo: '',
+        local: '',
         posicao: '55% 22%',
     },
     {
         imagem: '/ent3.png',
-        titulo: 'Entrega Realizada',
-        local: 'Endereço da entrega',
+        titulo: '',
+        local: '',
         posicao: '62% 45%',
     },
 ]
@@ -127,13 +127,21 @@ export default function Entregas() {
                                         />
 
                                         <div className="relative z-10 flex items-center gap-3 px-4 pb-5">
-                                            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border-2 border-white/30 bg-black/40 backdrop-blur-[10px]">
-                                                <FaMapMarkerAlt size={18} className="text-white" />
-                                            </div>
-                                            <div className="text-white">
-                                                <p className="text-lg font-bold whitespace-nowrap">{item.titulo}</p>
-                                                <p className="text-sm whitespace-nowrap text-white/80">{item.local}</p>
-                                            </div>
+                                            {index === 0 ? (
+                                                <>
+                                                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border-2 border-white/30 bg-black/40 backdrop-blur-[10px]">
+                                                        <FaMapMarkerAlt size={18} className="text-white" />
+                                                    </div>
+                                                    <div className="text-white">
+                                                        <p className="text-lg font-bold whitespace-nowrap">{item.titulo}</p>
+                                                        <p className="text-sm whitespace-nowrap text-white/80">{item.local}</p>
+                                                    </div>
+                                                </>
+                                            ) : (
+                                                <p className="text-lg font-bold whitespace-nowrap text-white/50">
+                                                    {index + 1}/{entregas.length}
+                                                </p>
+                                            )}
                                         </div>
                                     </>
                                 )}
