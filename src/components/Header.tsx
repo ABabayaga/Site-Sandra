@@ -7,6 +7,7 @@ const extraSeries = series.slice(3);
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [seriesMenuOpen, setSeriesMenuOpen] = useState(false);
+  const [visible, setVisible] = useState(true);
   const seriesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -29,11 +30,41 @@ export default function Header() {
     };
   }, [seriesMenuOpen]);
 
+  // Esconde o header após um período sem scroll e sem movimento do mouse,
+  // para dar mais destaque ao conteúdo; reaparece ao primeiro sinal de atividade.
+  useEffect(() => {
+    if (menuOpen || seriesMenuOpen) {
+      setVisible(true);
+      return;
+    }
+
+    const IDLE_DELAY = 1000;
+    let idleTimer: ReturnType<typeof setTimeout>;
+
+    const show = () => {
+      setVisible(true);
+      clearTimeout(idleTimer);
+      idleTimer = setTimeout(() => setVisible(false), IDLE_DELAY);
+    };
+
+    window.addEventListener("scroll", show, { passive: true });
+    window.addEventListener("mousemove", show);
+    show();
+
+    return () => {
+      clearTimeout(idleTimer);
+      window.removeEventListener("scroll", show);
+      window.removeEventListener("mousemove", show);
+    };
+  }, [menuOpen, seriesMenuOpen]);
+
   return (
     <header>
       <nav
         aria-label="Primary"
-        className="fixed top-3 left-1/2 z-50 w-[calc(100%-16px)] max-w-6xl -translate-x-1/2 sm:top-4 sm:w-[calc(100%-24px)]"
+        className={`fixed top-3 left-1/2 z-50 w-[calc(100%-16px)] max-w-6xl -translate-x-1/2 transition-[opacity,transform] duration-500 ease-out sm:top-4 sm:w-[calc(100%-24px)] ${
+          visible ? "opacity-100 translate-y-0" : "pointer-events-none -translate-y-6 opacity-0"
+        }`}
       >
         <div className="relative flex h-16 items-center justify-between rounded-2xl border border-white/10 bg-[#08284E]/80 px-3 shadow-[0_10px_40px_rgba(8,40,78,0.25)] backdrop-blur-xl sm:h-20 sm:px-4 md:px-5">
           {/* Anel interno sutil */}

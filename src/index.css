@@ -17,6 +17,19 @@
     }
 }
 
+@keyframes floatUp {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-14px);
+    }
+}
+
+.animate-float-up {
+    animation: floatUp 6s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
     * {
         animation-duration: 0.01ms !important;
