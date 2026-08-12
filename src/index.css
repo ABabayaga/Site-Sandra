@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+section[id],
+footer[id] {
+    scroll-margin-top: 6rem;
+}
+
 @theme {
     --font-gilda: 'Gilda Display', serif;
     --font-mirza: 'Mirza', serif;

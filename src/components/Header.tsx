@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { series } from "../data/series";
+import { smoothScrollToHash } from "../utils/scrollToHash";
 
 const extraSeries = series.slice(3);
 
@@ -9,6 +10,15 @@ export default function Header() {
   const [seriesMenuOpen, setSeriesMenuOpen] = useState(false);
   const [visible, setVisible] = useState(true);
   const seriesRef = useRef<HTMLDivElement>(null);
+
+  // Já na home: rola suavemente em vez de deixar o navegador pular direto pro hash.
+  // Em outra rota: mantém a navegação normal — o scroll acontece ao montar a home.
+  const handleAnchorClick = (hash: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (window.location.pathname !== "/") return;
+    e.preventDefault();
+    window.history.pushState(null, "", `/${hash}`);
+    smoothScrollToHash(hash);
+  };
 
   useEffect(() => {
     if (!seriesMenuOpen) return;
@@ -90,6 +100,7 @@ export default function Header() {
             </a>
             <a
               href="/#artista"
+              onClick={handleAnchorClick("#artista")}
               className="group relative flex flex-col items-center gap-0.5 text-[13px] font-medium uppercase tracking-[0.16em] text-[#fba13b] transition-colors duration-200 hover:text-white"
             >
               ARTISTA
@@ -97,9 +108,18 @@ export default function Header() {
             </a>
             <a
               href="/#colecoes"
+              onClick={handleAnchorClick("#colecoes")}
               className="group relative flex flex-col items-center gap-0.5 text-[13px] font-medium uppercase tracking-[0.16em] text-[#fba13b] transition-colors duration-200 hover:text-white"
             >
               COLEÇÕES
+              <span className="block h-px w-0 bg-[#fba13b] transition-all duration-300 group-hover:w-full" />
+            </a>
+            <a
+              href="/#entregas"
+              onClick={handleAnchorClick("#entregas")}
+              className="group relative flex flex-col items-center gap-0.5 text-[13px] font-medium uppercase tracking-[0.16em] text-[#fba13b] transition-colors duration-200 hover:text-white"
+            >
+              ENTREGAS
               <span className="block h-px w-0 bg-[#fba13b] transition-all duration-300 group-hover:w-full" />
             </a>
 
@@ -151,20 +171,16 @@ export default function Header() {
 
             <a
               href="/#conexoes"
+              onClick={handleAnchorClick("#conexoes")}
               className="group relative flex flex-col items-center gap-0.5 text-[13px] font-medium uppercase tracking-[0.16em] text-[#fba13b] transition-colors duration-200 hover:text-white"
             >
               CONEXÕES
               <span className="block h-px w-0 bg-[#fba13b] transition-all duration-300 group-hover:w-full" />
             </a>
-            <Link
-              to="/entregas"
-              className="group relative flex flex-col items-center gap-0.5 text-[13px] font-medium uppercase tracking-[0.16em] text-[#fba13b] transition-colors duration-200 hover:text-white"
-            >
-              ENTREGAS
-              <span className="block h-px w-0 bg-[#fba13b] transition-all duration-300 group-hover:w-full" />
-            </Link>
+
             <a
               href="/#contato"
+              onClick={handleAnchorClick("#contato")}
               className="group relative flex flex-col items-center gap-0.5 text-[13px] font-medium uppercase tracking-[0.16em] text-[#fba13b] transition-colors duration-200 hover:text-white"
             >
               CONTATO
@@ -176,18 +192,21 @@ export default function Header() {
           <div className="relative z-10 flex items-center gap-3.5 sm:gap-5 lg:hidden">
             <a
               href="/#artista"
+              onClick={handleAnchorClick("#artista")}
               className="text-[10px] font-medium uppercase tracking-widest text-[#fba13b] transition-colors duration-200 hover:text-white"
             >
               ARTISTA
             </a>
             <a
               href="/#colecoes"
+              onClick={handleAnchorClick("#colecoes")}
               className="text-[10px] font-medium uppercase tracking-widest text-[#fba13b] transition-colors duration-200 hover:text-white"
             >
               COLEÇÕES
             </a>
             <a
               href="/#contato"
+              onClick={handleAnchorClick("#contato")}
               className="text-[10px] font-medium uppercase tracking-widest text-[#fba13b] transition-colors duration-200 hover:text-white"
             >
               CONTATO
@@ -268,18 +287,20 @@ export default function Header() {
             <li>
               <a
                 href="/#conexoes"
+                onClick={(e) => { setMenuOpen(false); handleAnchorClick("#conexoes")(e); }}
                 className="block rounded-xl px-4 py-2.5 text-[11px] font-medium uppercase tracking-[0.16em] text-[#D9BC9A] transition-colors duration-200 hover:text-white hover:bg-white/5"
               >
                 CONEXÕES
               </a>
             </li>
             <li>
-              <Link
-                to="/entregas"
+              <a
+                href="/#entregas"
+                onClick={(e) => { setMenuOpen(false); handleAnchorClick("#entregas")(e); }}
                 className="block rounded-xl px-4 py-2.5 text-[11px] font-medium uppercase tracking-[0.16em] text-[#D9BC9A] transition-colors duration-200 hover:text-white hover:bg-white/5"
               >
                 ENTREGAS
-              </Link>
+              </a>
             </li>
           </ul>
         </div>
