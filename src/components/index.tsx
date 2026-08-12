@@ -7,7 +7,7 @@ import Artista from "./Artista";
 import Spotify from "./Spotify";
 import Colecao from "./Colecao";
 import Entregas from "./Entregas";
-import Series from "./Series";
+/* import Series from "./Series"; */
 import Instagram from "./Instagram";
 import Conexoes from "./Conexoes";
 import Footer from "./Footer";
