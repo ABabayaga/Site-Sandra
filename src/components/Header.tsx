@@ -104,7 +104,7 @@ export default function Header() {
             </a>
 
             {/* SERIES — dropdown */}
-            <div ref={seriesRef} className="relative">
+           {/*  <div ref={seriesRef} className="relative">
               <button
                 onClick={() => setSeriesMenuOpen((v) => !v)}
                 aria-expanded={seriesMenuOpen}
@@ -147,7 +147,7 @@ export default function Header() {
                   </ul>
                 </div>
               )}
-            </div>
+            </div> */}
 
             <a
               href="/#conexoes"

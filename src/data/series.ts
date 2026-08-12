@@ -3,6 +3,8 @@ export interface Serie {
     slug: string;
     imagem: string;
     descricao: string;
+    dimensoes?: string;
+    serie?: string;
 }
 
 function slugify(nome: string): string {
@@ -34,28 +36,97 @@ const rawSeries: Omit<Serie, 'slug'>[] = [
             'Inspirada nos elementos fundamentais da natureza e nos impulsos que moldam a vida, esta série investiga energia, expansão, erosão, criação e transformação. As obras carregam intensidade visual e gestual, revelando a potência dos processos naturais e das forças que atuam tanto no mundo exterior quanto na experiência humana.',
     },
     {
-        nome: 'Raízes',
-        imagem: '/BG1.png',
+        nome: 'Energia Vital',
+        serie: '',
+        imagem: '/ev.jpeg',
+        dimensoes: '1,20 x 1,00',
         descricao:
-            'Uma reflexão sobre origem, pertencimento e memória. A série Raízes busca revelar as conexões invisíveis que sustentam nossa existência: histórias, vínculos, heranças afetivas e culturais. As composições sugerem crescimento, permanência e continuidade, lembrando que toda expansão nasce de algo profundamente enraizado.',
+            'Movimentos circulares constroem um fluxo contínuo, evocando a pulsação e a renovação constante da vida.',
     },
     {
-        nome: 'Essência',
-        imagem: '/BG.png',
+        nome: 'Entre Camadas (provável)',
+        serie: '',
+        imagem: '/imagem-2.jpg',
+        dimensoes: '0,20 x 0,30',
         descricao:
-            'A busca pelo que permanece quando o excesso é removido. Nesta série, formas, texturas e cores são conduzidas para revelar aquilo que é fundamental, íntimo e verdadeiro. As obras propõem uma experiência de encontro com a própria natureza das coisas, celebrando a simplicidade, a autenticidade e a presença do essencial.',
+            'Há um fogo que não destrói, apenas transforma. A matéria se expande em camadas vibrantes, como se a luz brotasse de dentro da própria tela. As texturas preservam a memória do gesto, enquanto as cores aquecem o olhar e despertam sensações.',
     },
     {
-        nome: 'Ouro em Estado',
-        imagem: '/memo.png',
+        nome: 'Confluência',
+        serie: '',
+        imagem: '/imagem-4.jpg',
+        dimensoes: '1,80 x 0,30',
         descricao:
-            'Uma investigação sobre valor, transformação e descoberta. O ouro aparece não apenas como material, mas como símbolo daquilo que é raro, precioso e revelado pelo tempo. As obras exploram contrastes entre matéria e luz, imperfeição e beleza, sugerindo que aquilo que possui verdadeiro valor muitas vezes emerge de processos de transformação.',
+            'Em três movimentos, a obra revela uma mesma energia em constante transformação. A composição encontra o equilíbrio: contrastes e encontros na mesma energia.',
     },
     {
-        nome: 'Cicatrizes Urbanas',
-        imagem: '/BG3.png',
+        nome: 'Movimento e Fluxo',
+        serie: '',
+        imagem: '/imagem-5.jpg',
+        dimensoes: '1,20 x 1,00',
         descricao:
-            'Uma leitura poética das marcas deixadas pelo tempo, pela ocupação humana e pela transformação constante das cidades. Texturas, camadas e contrastes evocam paredes, superfícies e vestígios que contam histórias silenciosas. A série propõe um olhar sensível sobre as memórias inscritas nos espaços urbanos e sobre a beleza que pode surgir da imperfeição e do desgaste.',
+            'Gestos livres e espontâneos registram o fluxo do tempo em camadas de movimento e energia.',
+    },
+    {
+        nome: 'Aurora',
+        serie: '',
+        imagem: '/imagem-6a.jpg',
+        dimensoes: '0,50 x 0,80',
+        descricao: 'Começo, surgimento, luz que rompe.',
+    },
+    {
+        nome: 'Âmago',
+        serie: '',
+        imagem: '/imagem-7a.jpg',
+        dimensoes: '0,30 x 0,30',
+        descricao:
+            'Duas forças coexistem em tensão. Não se anulam nem se dissolvem; encontram-se. A obra pulsa no limite entre choque e equilíbrio, onde o contraste não rompe, mas sustenta a própria existência.',
+    },
+    {
+        nome: 'Energia Incandescente',
+        serie: '',
+        imagem: '/imagem-8.jpg',
+        dimensoes: '0,80 x 0,80',
+        descricao:
+            'Uma composição densa e vibrante que revela uma energia em combustão, intensa e expansiva.',
+    },
+    {
+        nome: 'Entre Sinais',
+        serie: '',
+        imagem: '/imagem-9.jpg',
+        dimensoes: '0,97 x 0,80',
+        descricao: 'O que nos atravessa raramente vem de forma direta.',
+    },
+    {
+        nome: 'Profundidade Azul',
+        serie: '',
+        imagem: '/imagem-10.jpg',
+        dimensoes: '2,00 x 1,20',
+        descricao:
+            'Camadas de azul constroem uma imersão silenciosa, onde profundidade e contemplação se encontram.',
+    },
+    {
+        nome: 'Gênese',
+        serie: '',
+        imagem: '/imagem-11.jpg',
+        dimensoes: '0,30 x 0,30',
+        descricao: 'Toda criação começa em movimento.',
+    },
+    {
+        nome: 'Guardião',
+        serie: '',
+        imagem: '/imagem-12.jpg',
+        dimensoes: '1,20 x 1,00',
+        descricao:
+            'Inspirada em símbolos ancestrais e elementos orgânicos da terra, a obra constrói um campo de proteção e energia vital. O centro luminoso é cercado por formas que lembram sementes, raízes e adornos ritualísticos, criando uma composição que fala de origem, força e permanência.',
+    },
+    {
+        nome: 'Maré Interna',
+        serie: '',
+        imagem: '/imagem-13.jpg',
+        dimensoes: '0,50 x 0,80',
+        descricao:
+            'Entre correntes silenciosas e camadas profundas, a obra revela movimentos internos que nunca permanecem imóveis.',
     },
 ];
 

@@ -19,7 +19,7 @@ const Index = () => {
         <Colecao />
         {/*<Carrosel selectedImage={selectedImage} onSelect={setSelectedImage} />*/}
         <Entregas />
-        <Series />
+       {/*  <Series /> */}
         <Instagram />
         <Conexoes />
         <Footer />
