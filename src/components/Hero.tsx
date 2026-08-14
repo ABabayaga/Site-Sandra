@@ -16,7 +16,7 @@ export default function Hero() {
             {/* Overlay escuro sutil para dar contraste ao conteúdo */}
             <div className="absolute inset-0 bg-black/40" />
 
-            <div className="absolute inset-0 flex flex-col items-center justify-center px-4 pt-24 pb-10 text-center sm:px-6">
+            <div className="absolute inset-0 flex flex-col items-center justify-center px-4 pt-10 pb-40 text-center sm:px-6 sm:pt-24 sm:pb-10">
                 <p className="mb-4 text-[10px] font-medium uppercase tracking-[0.28em] text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] font-mirza sm:mb-6 sm:text-xs sm:tracking-[0.35em]">
                     Pintura Abstrata Contemporânea
                 </p>

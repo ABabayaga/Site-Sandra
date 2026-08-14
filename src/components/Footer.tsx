@@ -1,12 +1,12 @@
 export default function Footer() {
     return (
         <footer id="contato">
-            <div className="bg-[#08284E] px-4 py-4 sm:px-6 ">
-                <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 items-stretch sm:grid-cols-3 sm:gap-8 border-t border-b border-white/30">
+            <div className="bg-[#08284E] px-4 py-2 sm:px-6 sm:py-4">
+                <div className="mx-auto grid max-w-5xl grid-cols-1 gap-2 items-stretch sm:grid-cols-3 sm:gap-8 border-t border-b border-white/30">
 
                     {/* Col 1 — Logo + Nome */}
-                    <div className="flex flex-col items-center justify-center gap-0  px-6 py-3">
-                        <img src="/logo.png" alt="SN Logo" className="h-10 sm:h-25" />
+                    <div className="flex flex-col items-center justify-center gap-0 px-6 py-1 sm:py-3">
+                        <img src="/logo.png" alt="SN Logo" className="h-8 sm:h-25" />
                         <div className="text-center">
                             <p className="text-[#C9A96E] text-base font-bold">Sandra Novas</p>
                             <p className="text-white/60 text-xs">Galeria de Arte</p>
@@ -14,7 +14,7 @@ export default function Footer() {
                     </div>
 
                     {/* Col 2 — Atendimento + Horário */}
-                    <div className="flex flex-col justify-center gap-2  px-5 py-3">
+                    <div className="flex flex-col justify-center gap-1 px-5 py-1 sm:gap-2 sm:py-3">
                         <div>
                             <p className="text-white text-sm font-semibold mb-1">Atendimento</p>
                             <p className="text-[11px] uppercase tracking-[0.15em] text-white/60 leading-relaxed whitespace-nowrap">
@@ -44,14 +44,14 @@ export default function Footer() {
                     </div>
 
                     {/* Col 3 — BR7 */}
-                    <div className="flex flex-col items-center justify-center gap-2  px-6 py-3">
+                    <div className="flex flex-col items-center justify-center gap-1 px-6 py-1 sm:gap-2 sm:py-3">
                         <p className="text-white text-xs font-semibold">Uma criação de</p>
                         <a
                             href="https://www.instagram.com/br7.mkt_/"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <img src="/br7.png" alt="BR7 Marketing em Movimento" className="h-12 sm:h-16" />
+                            <img src="/br7.png" alt="BR7 Marketing em Movimento" className="h-9 sm:h-16" />
                         </a>
                     </div>
 
