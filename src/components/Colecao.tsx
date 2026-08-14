@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import TiltedCard from './TiltedCard'
 
 type Obra = {
     titulo: string
@@ -102,10 +103,24 @@ function SlideshowModal({ serie, onClose }: { serie: Serie; onClose: () => void 
                     onClick={(e) => e.stopPropagation()}
                 >
                     <div className="flex min-h-0 flex-1 items-center justify-center px-8 pt-14">
-                        <img
-                            src={slide.imagem}
-                            alt={slide.titulo}
-                            className="max-h-full max-w-[85vw] object-contain drop-shadow-2xl"
+                        <TiltedCard
+                            imageSrc={slide.imagem}
+                            altText={slide.titulo}
+                            captionText={slide.titulo}
+                            containerHeight="auto"
+                            containerWidth="auto"
+                            fitImage
+                            imageClassName="max-h-[70vh] max-w-[85vw] object-contain rounded-[15px] drop-shadow-2xl"
+                            scaleOnHover={1.04}
+                            rotateAmplitude={9}
+                            showMobileWarning={false}
+                            displayOverlayContent
+                            overlayContent={
+                                /* Frase sobre a obra */
+                                <p className="absolute left-3 top-3 max-h-[calc(100%-1.5rem)] max-w-[min(19rem,60%)] overflow-y-auto rounded-xl bg-black/35 px-3 py-2 text-left text-xs font-serif italic leading-relaxed text-white/75 backdrop-blur-md sm:left-5 sm:top-5 sm:max-h-[calc(100%-2.5rem)] sm:text-[13px]">
+                                    {slide.frase}
+                                </p>
+                            }
                         />
                     </div>
                     {/* Cartão de legenda */}
@@ -114,7 +129,6 @@ function SlideshowModal({ serie, onClose }: { serie: Serie; onClose: () => void 
                             <p className="text-white/50 text-[10px] tracking-[0.22em] mb-1">{serie.nome}</p>
                             <p className="text-white text-lg font-serif tracking-wide">{slide.titulo}</p>
                             <p className="text-white/40 text-xs mt-1 tracking-widest">{slide.dimensoes}</p>
-                            <p className="text-white/70 text-sm font-serif italic mt-3 leading-relaxed">{slide.frase}</p>
                         </div>
                     </div>
                 </div>
