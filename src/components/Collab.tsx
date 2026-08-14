@@ -16,12 +16,13 @@ const collabs: Collab[] = [
     {
         nome: 'Dayvison Rodrigues',
         imagem: '/dr/dr1.jpeg',
-        descricao: 'Dayvison Rodrigues é um artista cuja obra mistura desenho, graffiti, fotografia e pintura, linguagens que acumulou ao longo da vida. Seu processo é intuitivo e orgânico, unindo texturas, cores e estética urbana influenciada pelas paisagens culturais que o formaram. Símbolos ligados a força, pertencimento e território surgem espontaneamente em suas obras, refletindo sua conexão com o Mato Grosso do Sul, que funciona como parte da essência do trabalho, não apenas como cenário. Em parceria com Sandra Novas, ele desenvolve um espaço voltado à arte contemporânea, com obras que convidam o público a vivenciar diferentes perspectivas e emoções.',
+        descricao: 'A arte de Dayvison Rodrigues nasce do encontro entre o desenho, o graffiti, a fotografia e a pintura. Em um processo intuitivo, o artista combina texturas, cores e referências da estética urbana para transformar memórias e experiências em narrativas visuais.\n\nSímbolos ligados à força, ao pertencimento e à origem atravessam suas obras, revelando também sua conexão com Mato Grosso do Sul. Como artista convidado da Galeria Sandra Novas, Dayvison apresenta trabalhos que ampliam o diálogo entre diferentes linguagens e convidam o público a descobrir novas perspectivas.',
         // Obras exibidas no modal. Vazio = usa a imagem de capa como único slide.
         obras: [
             { imagem: '/dr/dr1.jpeg' },
             { imagem: '/dr/dr2.jpeg' },
             { imagem: '/dr/dr3.jpeg' },
+            { imagem: '/dr/dr4.jpeg' },
         ],
     },
     /* {
