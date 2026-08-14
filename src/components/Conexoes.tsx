@@ -15,12 +15,12 @@ const conexoes = [
 
 export default function Conexoes() {
     return (
-        <section id="conexoes" style={{ backgroundColor: '#F9F2EC' }} className="px-4 py-10 sm:px-6 sm:py-0 sm:pb-10">
+        <section id="conexoes" style={{ backgroundColor: '#F9F2EC' }} className="px-4 py-5 sm:px-6 sm:py-0 sm:pb-10">
             <div className="max-w-6xl mx-auto">
 
                 {/* Título */}
-                <div className="mb-10 flex justify-center sm:mb-14">
-                    <div className="rounded-2xl px-6 py-3 sm:px-14 sm:py-4">
+                <div className="mb-6 flex justify-center sm:mb-6">
+                    <div className="rounded-2xl px-6 py-1 sm:px-14 sm:py-2">
                         <h2 className="text-2xl font-serif text-[#1a1a1a] sm:text-3xl">— Conexões —</h2>
                     </div>
                 </div>

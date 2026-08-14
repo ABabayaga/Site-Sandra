@@ -221,11 +221,11 @@ export default function Colecao() {
     const [modalSerie, setModalSerie] = useState<Serie | null>(null)
 
     return (
-        <section id='colecoes' style={{ backgroundColor: '#F9F2EC' }} className="px-4 py-10 sm:px-6 sm:py-0">
+        <section id='colecoes' style={{ backgroundColor: '#F9F2EC' }} className="px-4 py-5 sm:px-6 sm:py-0">
             <div className="max-w-6xl mx-auto">
 
                 {/* Topo: logo + título */}
-                <div className="mb-10 flex flex-col items-center gap-4 sm:mb-14">
+                <div className="mb-6 flex flex-col items-center gap-4 sm:mb-14">
                     {/*<div className="text-center">
                         <img src="/logo2.png" alt="SN Logo" className="mx-auto mb-3 h-28 sm:mb-4 sm:h-44" />
                         <div className="flex items-center justify-center gap-3 sm:gap-4">

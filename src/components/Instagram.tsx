@@ -37,11 +37,11 @@ function PostImage({ post, className, delay }: { post: { imagem: string }; class
 
 export default function Instagram() {
     return (
-        <section id="instagram" style={{ backgroundColor: '#F9F2EC' }} className="px-4 py-10 sm:px-6 sm:py-0 sm:pb-14">
+        <section id="instagram" style={{ backgroundColor: '#F9F2EC' }} className="px-4 sm:pt-8 py-5 sm:px-6 sm:py-0 sm:pb-14">
             <div className="max-w-6xl mx-auto">
 
                 {/* Topo: título + handle */}
-                <div className="mb-10 flex flex-col items-center gap-3 sm:mb-2">
+                <div className="mb-6 flex flex-col items-center gap-3 sm:mb-2">
                     <h2 className="text-2xl font-serif text-[#1a1a1a] sm:text-3xl">— No Instagram —</h2>
                     <a
                         href={INSTAGRAM_URL}
@@ -99,7 +99,7 @@ export default function Instagram() {
                 </div>
 
                 {/* CTA */}
-                <div className="mt-10 flex justify-center sm:mt-2">
+                <div className="mt-6 flex justify-center sm:mt-0">
                     <a
                         href={INSTAGRAM_URL}
                         target="_blank"

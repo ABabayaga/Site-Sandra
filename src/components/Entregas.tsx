@@ -107,11 +107,11 @@ export default function Entregas() {
     const isSingle = entregas.length === 1
 
     return (
-        <section id="entregas" style={{ backgroundColor: '#F9F2EC' }} className="px-4 py-10 sm:px-6 sm:py-14">
+        <section id="entregas" style={{ backgroundColor: '#F9F2EC' }} className="px-4 py-5 sm:px-6 sm:py-0">
             <div className="max-w-6xl mx-auto">
 
                 {/* Título */}
-                <div className="mb-10 flex flex-col items-center gap-2 text-center sm:mb-14">
+                <div className="mb-6 flex flex-col items-center gap-2 text-center sm:mb-14">
                     <h2 className="text-2xl font-serif text-[#1a1a1a] sm:text-3xl">— Entregas —</h2>
                     <p className="max-w-xl text-sm text-gray-600 sm:text-base">
                         Cada obra é embalada, transportada e instalada com o mesmo cuidado que teve em sua criação.

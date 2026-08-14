@@ -4,9 +4,9 @@ export default function Artista() {
             <div className="max-w-6xl mx-auto">
 
                 {/* Topo: logo + título */}
-                <div className="mb-10 flex flex-col items-center gap-5 sm:mb-14 sm:gap-6">
+                <div className="mb-10 flex flex-col items-center gap-1 sm:mb-14 sm:gap-2">
                     <div className="text-center">
-                        <img src="/logo2.png" alt="SN Logo" className="mx-auto mb-3 h-28 sm:mb-4 sm:h-44" />
+                        <img src="/logo2.png" alt="SN Logo" className="mx-auto mb-1 h-28 sm:mb-2 sm:h-44" />
                         <div className="flex items-center justify-center gap-3 sm:gap-4">
                             <div className="h-px w-10 bg-[#4b3102] opacity-60 sm:w-48" />
                             <p className="text-[10px] tracking-[0.16em] text-[#6e4c0d] sm:text-xs sm:tracking-[0.2em]">GALERIA SANDRA NOVAS</p>
@@ -14,7 +14,7 @@ export default function Artista() {
                         </div>
                     </div>
 
-                    <div className="w-full max-w-2xl px-4 py-4 text-center sm:px-16 sm:py-6">
+                    <div className="w-full max-w-2xl px-4 py-1 text-center sm:px-16 sm:py-2">
                         <h2 className="text-3xl leading-snug font-serif text-[#1a1a1a] sm:text-4xl">
                             Uma trajetória guiada pelo<br />impulso criativo
                         </h2>
