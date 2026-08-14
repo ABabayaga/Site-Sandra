@@ -6,6 +6,7 @@ import Hero from "./Hero";
 import Artista from "./Artista";
 import Spotify from "./Spotify";
 import Colecao from "./Colecao";
+import Collab from "./Collab";
 import Entregas from "./Entregas";
 /* import Series from "./Series"; */
 import Instagram from "./Instagram";
@@ -30,6 +31,7 @@ const Index = () => {
         <Artista />
         <Spotify />
         <Colecao />
+        <Collab />
         {/*<Carrosel selectedImage={selectedImage} onSelect={setSelectedImage} />*/}
         <Entregas />
        {/*  <Series /> */}

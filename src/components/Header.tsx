@@ -1,9 +1,12 @@
 import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
-import { series } from "../data/series";
 import { smoothScrollToHash } from "../utils/scrollToHash";
 
-const extraSeries = series.slice(3);
+// Dropdown SERIES desativado (desktop e mobile) — reativar junto com os blocos
+// comentados no JSX abaixo.
+/* import { Link } from "react-router-dom";
+import { series } from "../data/series";
+
+const extraSeries = series.slice(3); */
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -112,6 +115,14 @@ export default function Header() {
               className="group relative flex flex-col items-center gap-0.5 text-[13px] font-medium uppercase tracking-[0.16em] text-[#fba13b] transition-colors duration-200 hover:text-white"
             >
               COLEÇÕES
+              <span className="block h-px w-0 bg-[#fba13b] transition-all duration-300 group-hover:w-full" />
+            </a>
+            <a
+              href="/#collabs"
+              onClick={handleAnchorClick("#collabs")}
+              className="group relative flex flex-col items-center gap-0.5 text-[13px] font-medium uppercase tracking-[0.16em] text-[#fba13b] transition-colors duration-200 hover:text-white"
+            >
+              COLLABS
               <span className="block h-px w-0 bg-[#fba13b] transition-all duration-300 group-hover:w-full" />
             </a>
             <a
@@ -241,7 +252,7 @@ export default function Header() {
               </a>
             </li>
             {/* SERIES — dropdown mobile */}
-            <li>
+            {/* <li>
               <button
                 onClick={() => setSeriesMenuOpen((v) => !v)}
                 aria-expanded={seriesMenuOpen}
@@ -282,7 +293,7 @@ export default function Header() {
                   </ul>
                 </div>
               </div>
-            </li>
+            </li> */}
 
             <li>
               <a
@@ -291,6 +302,15 @@ export default function Header() {
                 className="block rounded-xl px-4 py-2.5 text-[11px] font-medium uppercase tracking-[0.16em] text-[#D9BC9A] transition-colors duration-200 hover:text-white hover:bg-white/5"
               >
                 CONEXÕES
+              </a>
+            </li>
+            <li>
+              <a
+                href="/#collabs"
+                onClick={(e) => { setMenuOpen(false); handleAnchorClick("#collabs")(e); }}
+                className="block rounded-xl px-4 py-2.5 text-[11px] font-medium uppercase tracking-[0.16em] text-[#D9BC9A] transition-colors duration-200 hover:text-white hover:bg-white/5"
+              >
+                COLLABS
               </a>
             </li>
             <li>

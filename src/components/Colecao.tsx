@@ -102,7 +102,11 @@ function SlideshowModal({ serie, onClose }: { serie: Serie; onClose: () => void 
                     className={`absolute inset-0 flex flex-col items-center pb-16 transition-opacity duration-500 ${i === current ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
                     onClick={(e) => e.stopPropagation()}
                 >
-                    <div className="flex min-h-0 flex-1 items-center justify-center px-8 pt-14">
+                    <div className="flex min-h-0 flex-1 flex-col items-center justify-center gap-3 px-8 pt-14">
+                        {/* Frase acima da obra (só mobile — no desktop vira overlay) */}
+                        <p className="max-h-[22vh] w-[85vw] shrink-0 overflow-y-auto rounded-xl bg-white/10 px-4 py-3 text-left text-xs font-serif italic leading-relaxed text-white/70 backdrop-blur-sm sm:hidden">
+                            {slide.frase}
+                        </p>
                         <TiltedCard
                             imageSrc={slide.imagem}
                             altText={slide.titulo}
@@ -117,7 +121,7 @@ function SlideshowModal({ serie, onClose }: { serie: Serie; onClose: () => void 
                             displayOverlayContent
                             overlayContent={
                                 /* Frase sobre a obra */
-                                <p className="absolute left-3 top-3 max-h-[calc(100%-1.5rem)] max-w-[min(19rem,60%)] overflow-y-auto rounded-xl bg-black/35 px-3 py-2 text-left text-xs font-serif italic leading-relaxed text-white/75 backdrop-blur-md sm:left-5 sm:top-5 sm:max-h-[calc(100%-2.5rem)] sm:text-[13px]">
+                                <p className="absolute left-5 top-5 hidden max-h-[calc(100%-2.5rem)] max-w-[min(19rem,60%)] overflow-y-auto rounded-xl bg-black/35 px-3 py-2 text-left text-[13px] font-serif italic leading-relaxed text-white/75 backdrop-blur-md sm:block">
                                     {slide.frase}
                                 </p>
                             }
