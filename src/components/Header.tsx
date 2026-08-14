@@ -122,7 +122,7 @@ export default function Header() {
               onClick={handleAnchorClick("#collabs")}
               className="group relative flex flex-col items-center gap-0.5 text-[13px] font-medium uppercase tracking-[0.16em] text-[#fba13b] transition-colors duration-200 hover:text-white"
             >
-              COLLABS
+             Diálogos
               <span className="block h-px w-0 bg-[#fba13b] transition-all duration-300 group-hover:w-full" />
             </a>
             <a

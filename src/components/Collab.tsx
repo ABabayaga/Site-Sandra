@@ -162,7 +162,7 @@ export default function Collab() {
                 {/* Topo: título */}
                 <div className="mb-10 pt-10 flex flex-col items-center gap-4 sm:mb-2">
                     <div className="w-full max-w-2xl rounded-2xl px-4 py-4 text-center sm:px-12 sm:py-6">
-                        <h2 className="mb-3 text-3xl font-serif text-[#1a1a1a] sm:text-4xl">— Collabs —</h2>
+                        <h2 className="mb-3 text-3xl font-serif text-[#1a1a1a] sm:text-4xl">— Diálogos / Artistas Convidados —</h2>
                         <p className="text-sm text-gray-700 leading-relaxed">
                             Encontros que ampliam a obra: parcerias onde arte, marca e ambiente se atravessam
                         </p>
