@@ -1,32 +1,16 @@
-import { useEffect, useRef, useState } from "react";
-import { FaPause, FaPlay } from "react-icons/fa";
+import { useEffect, useRef } from "react";
 
 export default function Hero() {
     const videoRef = useRef<HTMLVideoElement>(null);
-    const [playing, setPlaying] = useState(true);
 
     // Respeita a preferência do sistema: quem pede menos movimento não deve
-    // receber o vídeo em autoplay — só o poster estático, com o controle
-    // disponível para reproduzir manualmente se quiser.
+    // receber o vídeo em autoplay — só o poster estático.
     useEffect(() => {
         const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         if (prefersReducedMotion && videoRef.current) {
             videoRef.current.pause();
-            setPlaying(false);
         }
     }, []);
-
-    const toggleVideo = () => {
-        const video = videoRef.current;
-        if (!video) return;
-        if (video.paused) {
-            video.play();
-            setPlaying(true);
-        } else {
-            video.pause();
-            setPlaying(false);
-        }
-    };
 
     return (
         <section className="relative min-h-screen w-full">
@@ -45,18 +29,6 @@ export default function Hero() {
 
             {/* Overlay escuro sutil para dar contraste ao conteúdo */}
             <div className="absolute inset-0 bg-black/40" />
-
-            {/* Pausar/reproduzir o vídeo de fundo — WCAG 2.2.2 exige controle para
-                conteúdo em movimento automático com mais de 5s de duração. */}
-            <button
-                type="button"
-                onClick={toggleVideo}
-                aria-label={playing ? "Pausar vídeo de fundo" : "Reproduzir vídeo de fundo"}
-                aria-pressed={!playing}
-                className="absolute right-4 bottom-20 z-20 flex h-11 w-11 items-center justify-center rounded-full border border-white/30 bg-black/30 text-white backdrop-blur-sm transition-colors hover:bg-white/20 sm:right-6"
-            >
-                {playing ? <FaPause size={14} /> : <FaPlay size={14} className="translate-x-px" />}
-            </button>
 
             <div className="absolute inset-0 flex flex-col items-center justify-center px-4 pt-10 pb-40 text-center sm:px-6 sm:pt-24 sm:pb-10">
                 <p className="mb-4 text-[10px] font-medium uppercase tracking-[0.28em] text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] font-mirza sm:mb-6 sm:text-xs sm:tracking-[0.35em]">
