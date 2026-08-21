@@ -1,10 +1,7 @@
 import { useRef, useEffect, useCallback } from 'react';
 
 const items = [
-  { image: '/IMAGE 11.jpg', text: 'Quadro 1' },
-  { image: '/IMAGE 55.jpg', text: 'Quadro 3' },
   { image: '/IMAGE 22.jpg', text: 'Quadro 2' },
-  { image: '/IMAGE 33.jpg', text: 'Quadro 3' },
   { image: '/IMAGE 44.jpg', text: 'Quadro 4' },
   { image: '/IMAGE 6.png', text: 'Quadro 6' },
 ];
