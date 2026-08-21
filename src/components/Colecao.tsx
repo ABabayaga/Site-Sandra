@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
+import { FaTimes, FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import TiltedCard from './TiltedCard'
+import { useFocusTrap } from '../hooks/useFocusTrap'
 
 type Obra = {
     titulo: string
@@ -66,6 +68,7 @@ function SlideshowModal({ serie, onClose }: { serie: Serie; onClose: () => void 
     const [visible, setVisible] = useState(false)
     const slides = getSlides(serie)
     const total = slides.length
+    const containerRef = useFocusTrap<HTMLDivElement>()
 
     useEffect(() => {
         requestAnimationFrame(() => setVisible(true))
@@ -92,7 +95,12 @@ function SlideshowModal({ serie, onClose }: { serie: Serie; onClose: () => void 
 
     return (
         <div
-            className={`fixed inset-0 z-50 flex items-center justify-center bg-black transition-opacity duration-300 ${visible ? 'opacity-100' : 'opacity-0'}`}
+            ref={containerRef}
+            role="dialog"
+            aria-modal="true"
+            aria-label={`Galeria de obras — ${serie.nome}`}
+            tabIndex={-1}
+            className={`fixed inset-0 z-50 flex items-center justify-center bg-black transition-opacity duration-300 outline-none ${visible ? 'opacity-100' : 'opacity-0'}`}
             onClick={handleClose}
         >
             {/* Slides */}
@@ -141,40 +149,51 @@ function SlideshowModal({ serie, onClose }: { serie: Serie; onClose: () => void 
             {/* Botão fechar */}
             <button
                 onClick={handleClose}
-                className="absolute top-5 right-5 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-white/30 text-white text-lg hover:bg-white/10 transition-colors"
+                aria-label="Fechar galeria"
+                className="absolute top-5 right-5 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-white/30 text-white hover:bg-white/10 transition-colors"
             >
-                ✕
+                <FaTimes size={16} />
             </button>
 
-            {/* Prev */}
-            <button
-                onClick={(e) => { e.stopPropagation(); prevSlide() }}
-                className="absolute left-4 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-white/30 text-white text-xl hover:bg-white/10 transition-colors sm:left-8"
-            >
-                ←
-            </button>
+            {total > 1 && (
+                <>
+                    {/* Prev */}
+                    <button
+                        onClick={(e) => { e.stopPropagation(); prevSlide() }}
+                        aria-label="Obra anterior"
+                        className="absolute left-4 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-white/30 text-white hover:bg-white/10 transition-colors sm:left-8"
+                    >
+                        <FaChevronLeft size={16} />
+                    </button>
 
-            {/* Next */}
-            <button
-                onClick={(e) => { e.stopPropagation(); nextSlide() }}
-                className="absolute right-4 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-white/30 text-white text-xl hover:bg-white/10 transition-colors sm:right-8"
-            >
-                →
-            </button>
+                    {/* Next */}
+                    <button
+                        onClick={(e) => { e.stopPropagation(); nextSlide() }}
+                        aria-label="Próxima obra"
+                        className="absolute right-4 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-white/30 text-white hover:bg-white/10 transition-colors sm:right-8"
+                    >
+                        <FaChevronRight size={16} />
+                    </button>
+                </>
+            )}
 
             {/* Counter */}
-            <div className="absolute bottom-6 right-8 z-10 text-white/60 text-xs tracking-[0.2em]">
+            <div aria-hidden="true" className="absolute bottom-6 right-8 z-10 text-white/60 text-xs tracking-[0.2em]">
                 0{current + 1} / 0{total}
             </div>
 
             {/* Dots */}
             <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex gap-2">
-                {slides.map((_, i) => (
+                {slides.map((slide, i) => (
                     <button
                         key={i}
                         onClick={(e) => { e.stopPropagation(); setCurrent(i) }}
-                        className={`h-1.5 rounded-full transition-all duration-300 ${i === current ? 'w-6 bg-white' : 'w-1.5 bg-white/40'}`}
-                    />
+                        aria-label={`Ir para ${slide.titulo}`}
+                        aria-current={i === current}
+                        className="-m-2.5 flex items-center justify-center p-2.5"
+                    >
+                        <span className={`block h-1.5 rounded-full transition-all duration-300 ${i === current ? 'w-6 bg-white' : 'w-1.5 bg-white/40'}`} />
+                    </button>
                 ))}
             </div>
         </div>
@@ -186,12 +205,21 @@ function CardObra({ serie, onVerMais }: { serie: Serie; onVerMais: () => void })
     const capa = slides[0]?.imagem
     const totalObras = serie.obras.length
 
+    const hasSlides = slides.length > 0
+
     return (
-        <div className="group relative overflow-hidden rounded-2xl shadow-sm cursor-pointer">
+        <button
+            type="button"
+            onClick={onVerMais}
+            disabled={!hasSlides}
+            aria-label={`Ver mais obras da ${serie.nome}`}
+            className="group relative block w-full overflow-hidden rounded-2xl text-left shadow-sm disabled:cursor-default"
+        >
             {capa ? (
                 <img
                     src={capa}
                     alt={serie.nome}
+                    loading="lazy"
                     className="h-72 w-full object-cover sm:h-80 md:h-96"
                 />
             ) : (
@@ -204,16 +232,13 @@ function CardObra({ serie, onVerMais }: { serie: Serie; onVerMais: () => void })
                         {totalObras} {totalObras === 1 ? 'OBRA' : 'OBRAS'}
                     </p>
                 </div>
-                {slides.length > 0 && (
-                    <button
-                        onClick={onVerMais}
-                        className="mb-3 mr-3 shrink-0 rounded-full bg-blue-700/50 border border-white/30 px-3 py-1 text-[10px] tracking-[0.16em] text-white transition-colors hover:bg-white/30 sm:mb-4 sm:mr-4 sm:px-4 sm:tracking-widest"
-                    >
+                {hasSlides && (
+                    <span className="mb-3 mr-3 flex h-11 shrink-0 items-center justify-center rounded-full bg-blue-700/50 border border-white/30 px-4 text-[10px] tracking-[0.16em] text-white transition-colors group-hover:bg-white/30 sm:mb-4 sm:mr-4 sm:px-5 sm:tracking-widest">
                         VER MAIS
-                    </button>
+                    </span>
                 )}
             </div>
-        </div>
+        </button>
     )
 }
 

@@ -226,9 +226,11 @@ export default function Header() {
 
           {/* Hamburger — mobile */}
           <button
-            className="relative z-10 flex h-9 w-9 flex-col items-center justify-center gap-1.5 self-center lg:hidden"
+              className="relative z-10 flex h-11 w-11 flex-col items-center justify-center gap-1.5 self-center lg:hidden"
             onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Menu"
+            aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-menu"
           >
             <span className={`block h-0.5 w-5 bg-[#D9BC9A] transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
             <span className={`block h-0.5 w-5 bg-[#D9BC9A] transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
@@ -238,6 +240,9 @@ export default function Header() {
 
         {/* Menu mobile dropdown */}
         <div
+          id="mobile-menu"
+          inert={!menuOpen}
+          aria-hidden={!menuOpen}
           className={`mt-2 overflow-hidden rounded-2xl border border-white/10 bg-[#08284E]/80 backdrop-blur-xl transition-all duration-300 lg:hidden ${
             menuOpen ? "max-h-144 opacity-100" : "max-h-0 opacity-0"
           }`}

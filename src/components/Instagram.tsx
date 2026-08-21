@@ -22,12 +22,14 @@ function PostImage({ post, className, delay }: { post: { imagem: string }; class
             <img
                 src={post.imagem}
                 alt="Publicação no Instagram da Galeria Sandra Novas"
+                loading="lazy"
                 className="h-full w-full object-cover"
             />
             <div className="absolute inset-0 flex items-center justify-center bg-black/0 transition-colors duration-300 group-hover:bg-black/30">
                 <img
                     src="/insta.png"
                     alt=""
+                    loading="lazy"
                     className="h-6 w-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                 />
             </div>
@@ -67,12 +69,14 @@ export default function Instagram() {
                             <img
                                 src={post.imagem}
                                 alt="Publicação no Instagram da Galeria Sandra Novas"
+                                loading="lazy"
                                 className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                             />
                             <div className="absolute inset-0 flex items-center justify-center bg-black/0 transition-colors duration-300 group-hover:bg-black/30">
                                 <img
                                     src="/insta.png"
                                     alt=""
+                                    loading="lazy"
                                     className="h-6 w-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                                 />
                             </div>

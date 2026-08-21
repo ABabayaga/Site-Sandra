@@ -6,7 +6,7 @@ export default function Footer() {
 
                     {/* Col 1 — Logo + Nome */}
                     <div className="flex flex-col items-center justify-center gap-0 px-6 py-1 sm:py-3">
-                        <img src="/logo.png" alt="SN Logo" className="h-8 sm:h-25" />
+                        <img src="/logo.png" alt="SN Logo" loading="lazy" className="h-8 sm:h-25" />
                         <div className="text-center">
                             <p className="text-[#C9A96E] text-base font-bold">Sandra Novas</p>
                             <p className="text-white/60 text-xs">Galeria de Arte</p>
@@ -51,7 +51,7 @@ export default function Footer() {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <img src="/br7.png" alt="BR7 Marketing em Movimento" className="h-9 sm:h-16" />
+                            <img src="/br7.png" alt="BR7 Marketing em Movimento" loading="lazy" className="h-9 sm:h-16" />
                         </a>
                     </div>
 

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { series } from "../data/series";
 import Header from "./Header";
@@ -6,6 +7,7 @@ import Footer from "./Footer";
 export default function SeriePage() {
     const { slug } = useParams<{ slug: string }>();
     const serie = series.find((s) => s.slug === slug);
+    const [imageFailed, setImageFailed] = useState(false);
 
     if (!serie) return <Navigate to="/" replace />;
 
@@ -26,11 +28,21 @@ export default function SeriePage() {
 
                     <div className="animate-[fadeSlideIn_0.5s_ease-out_both] mt-10 grid gap-10 md:grid-cols-2 md:items-center md:gap-16">
                         <div className="overflow-hidden rounded-3xl shadow-sm">
-                            <img
-                                src={serie.imagem}
-                                alt={serie.nome}
-                                className="h-80 w-full object-cover sm:h-105 md:h-140"
-                            />
+                            {imageFailed ? (
+                                <div
+                                    className="flex h-80 w-full items-center justify-center text-center text-xs uppercase tracking-[0.2em] text-[#6e4c0d] sm:h-105 md:h-140"
+                                    style={{ backgroundColor: "#F0E4D4" }}
+                                >
+                                    Imagem indisponível
+                                </div>
+                            ) : (
+                                <img
+                                    src={serie.imagem}
+                                    alt={serie.nome}
+                                    onError={() => setImageFailed(true)}
+                                    className="h-80 w-full object-cover sm:h-105 md:h-140"
+                                />
+                            )}
                         </div>
 
                         <div>

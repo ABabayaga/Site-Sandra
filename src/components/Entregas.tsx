@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react'
-import { FaMapMarkerAlt } from 'react-icons/fa'
+import { FaMapMarkerAlt, FaTimes, FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import { entregas, type EntregaGaleria } from '../data/entregas'
+import { useFocusTrap } from '../hooks/useFocusTrap'
 
 function SlideshowModal({ galeria, onClose }: { galeria: EntregaGaleria; onClose: () => void }) {
     const [current, setCurrent] = useState(0)
     const [visible, setVisible] = useState(false)
     const total = galeria.imagens.length
+    const containerRef = useFocusTrap<HTMLDivElement>()
 
     const nextSlide = () => setCurrent((prev) => (prev + 1) % total)
     const prevSlide = () => setCurrent((prev) => (prev - 1 + total) % total)
@@ -33,7 +35,12 @@ function SlideshowModal({ galeria, onClose }: { galeria: EntregaGaleria; onClose
 
     return (
         <div
-            className={`fixed inset-0 z-50 flex items-center justify-center bg-black transition-opacity duration-300 ${visible ? 'opacity-100' : 'opacity-0'}`}
+            ref={containerRef}
+            role="dialog"
+            aria-modal="true"
+            aria-label={`Galeria de entrega — ${galeria.titulo}, ${galeria.local}`}
+            tabIndex={-1}
+            className={`fixed inset-0 z-50 flex items-center justify-center bg-black transition-opacity duration-300 outline-none ${visible ? 'opacity-100' : 'opacity-0'}`}
             onClick={handleClose}
         >
             {/* Slides */}
@@ -58,9 +65,10 @@ function SlideshowModal({ galeria, onClose }: { galeria: EntregaGaleria; onClose
             {/* Botão fechar */}
             <button
                 onClick={handleClose}
-                className="absolute top-5 right-5 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-white/30 text-lg text-white transition-colors hover:bg-white/10"
+                aria-label="Fechar galeria"
+                className="absolute top-5 right-5 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-white/30 text-white transition-colors hover:bg-white/10"
             >
-                ✕
+                <FaTimes size={16} />
             </button>
 
             {total > 1 && (
@@ -68,21 +76,23 @@ function SlideshowModal({ galeria, onClose }: { galeria: EntregaGaleria; onClose
                     {/* Prev */}
                     <button
                         onClick={(e) => { e.stopPropagation(); prevSlide() }}
-                        className="absolute left-4 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-white/30 text-xl text-white transition-colors hover:bg-white/10 sm:left-8"
+                        aria-label="Imagem anterior"
+                        className="absolute left-4 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-white/30 text-white transition-colors hover:bg-white/10 sm:left-8"
                     >
-                        ←
+                        <FaChevronLeft size={16} />
                     </button>
 
                     {/* Next */}
                     <button
                         onClick={(e) => { e.stopPropagation(); nextSlide() }}
-                        className="absolute right-4 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-white/30 text-xl text-white transition-colors hover:bg-white/10 sm:right-8"
+                        aria-label="Próxima imagem"
+                        className="absolute right-4 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-white/30 text-white transition-colors hover:bg-white/10 sm:right-8"
                     >
-                        →
+                        <FaChevronRight size={16} />
                     </button>
 
                     {/* Counter */}
-                    <div className="absolute bottom-6 right-8 z-10 text-xs tracking-[0.2em] text-white/60">
+                    <div aria-hidden="true" className="absolute bottom-6 right-8 z-10 text-xs tracking-[0.2em] text-white/60">
                         0{current + 1} / 0{total}
                     </div>
 
@@ -92,8 +102,12 @@ function SlideshowModal({ galeria, onClose }: { galeria: EntregaGaleria; onClose
                             <button
                                 key={item.imagem}
                                 onClick={(e) => { e.stopPropagation(); setCurrent(i) }}
-                                className={`h-1.5 rounded-full transition-all duration-300 ${i === current ? 'w-6 bg-white' : 'w-1.5 bg-white/40'}`}
-                            />
+                                aria-label={`Ir para imagem ${i + 1}`}
+                                aria-current={i === current}
+                                className="-m-2.5 flex items-center justify-center p-2.5"
+                            >
+                                <span className={`block h-1.5 rounded-full transition-all duration-300 ${i === current ? 'w-6 bg-white' : 'w-1.5 bg-white/40'}`} />
+                            </button>
                         ))}
                     </div>
                 </>
@@ -127,13 +141,15 @@ export default function Entregas() {
                                 key={galeria.slug}
                                 onClick={() => setModalGaleria(galeria)}
                                 className={`group relative flex h-56 w-full cursor-pointer flex-col items-center justify-center overflow-hidden rounded-2xl shadow-sm sm:h-64 ${isSingle ? 'max-w-2xl' : 'sm:w-85'}`}
-                                style={{
-                                    backgroundImage: `url('${capa.imagem}')`,
-                                    backgroundSize: 'cover',
-                                    backgroundPosition: capa.posicao,
-                                    backgroundColor: '#e7ddcf',
-                                }}
+                                style={{ backgroundColor: '#e7ddcf' }}
                             >
+                                <img
+                                    src={capa.imagem}
+                                    alt=""
+                                    loading="lazy"
+                                    className="absolute inset-0 h-full w-full object-cover"
+                                    style={{ objectPosition: capa.posicao }}
+                                />
                                 <div className="absolute inset-0 bg-black/45 transition-colors duration-300 group-hover:bg-black/60" />
                                 <div className="relative z-10 flex flex-col items-center gap-2 px-4 text-center text-white">
                                     <FaMapMarkerAlt size={22} />

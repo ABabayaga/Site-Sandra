@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { FaExpand, FaMapMarkerAlt } from "react-icons/fa";
+import { FaExpand, FaMapMarkerAlt, FaTimes } from "react-icons/fa";
 import { entregas, type EntregaImagem } from "../data/entregas";
 import Header from "./Header";
 import Footer from "./Footer";
+import { useFocusTrap } from "../hooks/useFocusTrap";
 
 function ImagemModal({ item, onClose }: { item: EntregaImagem; onClose: () => void }) {
     const [visible, setVisible] = useState(false);
+    const containerRef = useFocusTrap<HTMLDivElement>();
 
     const handleClose = () => {
         setVisible(false);
@@ -29,20 +31,26 @@ function ImagemModal({ item, onClose }: { item: EntregaImagem; onClose: () => vo
 
     return (
         <div
-            className={`fixed inset-0 z-50 flex items-center justify-center bg-black/90 transition-opacity duration-300 ${visible ? "opacity-100" : "opacity-0"}`}
+            ref={containerRef}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Imagem ampliada da entrega"
+            tabIndex={-1}
+            className={`fixed inset-0 z-50 flex items-center justify-center bg-black/90 transition-opacity duration-300 outline-none ${visible ? "opacity-100" : "opacity-0"}`}
             onClick={handleClose}
         >
             <img
                 src={item.imagem}
-                alt=""
+                alt="Foto ampliada da entrega"
                 className="max-h-[90vh] max-w-[90vw] object-contain drop-shadow-2xl"
                 onClick={(e) => e.stopPropagation()}
             />
             <button
                 onClick={handleClose}
-                className="absolute top-5 right-5 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-white/30 text-lg text-white transition-colors hover:bg-white/10"
+                aria-label="Fechar"
+                className="absolute top-5 right-5 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-white/30 text-white transition-colors hover:bg-white/10"
             >
-                ✕
+                <FaTimes size={16} />
             </button>
         </div>
     );
@@ -91,14 +99,17 @@ export default function EntregaPage() {
                                         <button
                                             key={item.imagem}
                                             onClick={() => setModalItem(item)}
+                                            aria-label={`Ampliar foto da entrega em ${galeria.local}`}
                                             className={`group relative h-64 overflow-hidden rounded-xl shadow-sm sm:h-auto ${item.span}`}
-                                            style={{
-                                                backgroundImage: `url('${item.imagem}')`,
-                                                backgroundSize: "cover",
-                                                backgroundPosition: item.posicao,
-                                                backgroundColor: "#e7ddcf",
-                                            }}
+                                            style={{ backgroundColor: "#e7ddcf" }}
                                         >
+                                            <img
+                                                src={item.imagem}
+                                                alt=""
+                                                loading="lazy"
+                                                className="absolute inset-0 h-full w-full object-cover"
+                                                style={{ objectPosition: item.posicao }}
+                                            />
                                             <div className="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/20" />
                                             <div className="absolute top-2 right-2 flex h-8 w-8 items-center justify-center rounded-full border border-white/30 bg-black/40 text-white opacity-0 backdrop-blur-[10px] transition-opacity duration-300 group-hover:opacity-100">
                                                 <FaExpand size={12} />

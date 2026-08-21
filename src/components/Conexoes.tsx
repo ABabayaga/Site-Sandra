@@ -35,6 +35,7 @@ export default function Conexoes() {
                                 <img
                                     src={c.imagem}
                                     alt={c.nome}
+                                    loading="lazy"
                                     className="w-full h-full object-contain rounded-xl"
                                 />
                                 <div className="absolute right-0 bottom-0 left-0 bg-white px-4 py-3 sm:px-5 sm:py-4">

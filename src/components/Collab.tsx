@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react'
+import { FaTimes, FaChevronLeft, FaChevronRight } from 'react-icons/fa'
+import { useFocusTrap } from '../hooks/useFocusTrap'
 
 type Obra = {
     imagem: string
@@ -48,6 +50,7 @@ function CollabModal({ collab, onClose }: { collab: Collab; onClose: () => void 
     const [visible, setVisible] = useState(false)
     const slides = getSlides(collab)
     const total = slides.length
+    const containerRef = useFocusTrap<HTMLDivElement>()
 
     const nextSlide = () => setCurrent((prev) => (prev + 1) % total)
     const prevSlide = () => setCurrent((prev) => (prev - 1 + total) % total)
@@ -75,7 +78,12 @@ function CollabModal({ collab, onClose }: { collab: Collab; onClose: () => void 
 
     return (
         <div
-            className={`fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 transition-opacity duration-300 ${visible ? 'opacity-100' : 'opacity-0'}`}
+            ref={containerRef}
+            role="dialog"
+            aria-modal="true"
+            aria-label={`Collab — ${collab.nome}`}
+            tabIndex={-1}
+            className={`fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 transition-opacity duration-300 outline-none ${visible ? 'opacity-100' : 'opacity-0'}`}
             onClick={handleClose}
         >
             <div
@@ -98,17 +106,19 @@ function CollabModal({ collab, onClose }: { collab: Collab; onClose: () => void 
                             {/* Prev */}
                             <button
                                 onClick={prevSlide}
-                                className="absolute left-3 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-black/30 text-white transition-colors hover:bg-white/20"
+                                aria-label="Obra anterior"
+                                className="absolute left-3 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-black/30 text-white transition-colors hover:bg-white/20"
                             >
-                                ←
+                                <FaChevronLeft size={16} />
                             </button>
 
                             {/* Next */}
                             <button
                                 onClick={nextSlide}
-                                className="absolute right-3 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-black/30 text-white transition-colors hover:bg-white/20"
+                                aria-label="Próxima obra"
+                                className="absolute right-3 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-black/30 text-white transition-colors hover:bg-white/20"
                             >
-                                →
+                                <FaChevronRight size={16} />
                             </button>
 
                             {/* Dots */}
@@ -117,8 +127,12 @@ function CollabModal({ collab, onClose }: { collab: Collab; onClose: () => void 
                                     <button
                                         key={i}
                                         onClick={() => setCurrent(i)}
-                                        className={`h-1.5 rounded-full transition-all duration-300 ${i === current ? 'w-6 bg-white' : 'w-1.5 bg-white/40'}`}
-                                    />
+                                        aria-label={`Ir para imagem ${i + 1}`}
+                                        aria-current={i === current}
+                                        className="-m-2.5 flex items-center justify-center p-2.5"
+                                    >
+                                        <span className={`block h-1.5 rounded-full transition-all duration-300 ${i === current ? 'w-6 bg-white' : 'w-1.5 bg-white/40'}`} />
+                                    </button>
                                 ))}
                             </div>
                         </>
@@ -145,9 +159,10 @@ function CollabModal({ collab, onClose }: { collab: Collab; onClose: () => void 
             {/* Botão fechar */}
             <button
                 onClick={handleClose}
-                className="absolute top-5 right-5 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-white/30 text-lg text-white transition-colors hover:bg-white/10"
+                aria-label="Fechar"
+                className="absolute top-5 right-5 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-white/30 text-white transition-colors hover:bg-white/10"
             >
-                ✕
+                <FaTimes size={16} />
             </button>
         </div>
     )
@@ -182,6 +197,7 @@ export default function Collab() {
                                 <img
                                     src={c.imagem}
                                     alt={c.nome}
+                                    loading="lazy"
                                     className="w-full h-full object-cover"
                                 />
                             </div>
@@ -200,7 +216,7 @@ export default function Collab() {
                             <div className="shrink-0 md:self-center">
                                 <button
                                     onClick={() => setModalCollab(c)}
-                                    className="w-full rounded-lg bg-[#C9A96E] px-5 py-3 text-[10px] font-bold tracking-[0.15em] whitespace-nowrap text-[#08284E] transition-colors hover:bg-[#b8956a] md:w-auto md:px-6"
+                                    className="flex h-11 w-full items-center justify-center rounded-lg bg-[#C9A96E] px-5 text-[10px] font-bold tracking-[0.15em] whitespace-nowrap text-[#08284E] transition-colors hover:bg-[#b8956a] md:w-auto md:px-6"
                                 >
                                     SAIBA MAIS
                                 </button>
