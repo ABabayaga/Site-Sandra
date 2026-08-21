@@ -1,11 +1,11 @@
 const posts = [
-    { imagem: '/ins1.png' },
-    { imagem: '/ins2.png' },
-    { imagem: '/ins3.png' },
-    { imagem: '/ins10.png' },
-    { imagem: '/ins5.png' },
-    { imagem: '/ins6.png' },
-    { imagem: '/ins7.png' },
+    { imagem: '/instagram/ins1.webp' },
+    { imagem: '/instagram/ins2.webp' },
+    { imagem: '/instagram/ins3.webp' },
+    { imagem: '/instagram/ins10.webp' },
+    { imagem: '/instagram/ins5.webp' },
+    { imagem: '/instagram/ins6.webp' },
+    { imagem: '/instagram/ins7.webp' },
 ]
 
 const INSTAGRAM_URL = 'https://www.instagram.com/galeriasandranovas/'
