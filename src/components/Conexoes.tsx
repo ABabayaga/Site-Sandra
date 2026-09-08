@@ -5,12 +5,6 @@ const conexoes = [
         imagem: '/gus5.jpeg',
         texto: `Empresário e investidor, Gustavo Soares mantém uma relação profissional com Sandra Novas há mais de duas décadas, acompanhando sua evolução artística e empreendedora.\n\nHoje sua atuação está diretamente ligada ao desenvolvimento da Galeria Sandra Novas, contribuindo com investimento, visão estratégica e apoio ao posicionamento, marketing e presença da artista no mercado.`,
     },
-    {
-        nome: 'Deise Rigon',
-        cargo: 'FL Home',
-        imagem: '/deise2.jpeg',
-        texto: `À frente da FL Home, Deise Rigon conduz uma construção guiada por percepção, intenção e cuidado valores que dialogam naturalmente com o processo artístico.\n\nNessa conexão, arte e ambiente deixam de ser espaços distintos: a obra integra-se ao ambiente e o ambiente amplia sua presença, criando experiências mais completas e significativas.`,
-    },
 ]
 
 export default function Conexoes() {
@@ -26,9 +20,9 @@ export default function Conexoes() {
                 </div>
 
                 {/* Linhas */}
-                <div className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 md:items-stretch">
+                <div className="flex flex-col items-center gap-6 sm:gap-8">
                     {conexoes.map((c) => (
-                        <div key={c.nome} className="grid grid-cols-1 gap-4 sm:grid-cols-[6fr_5fr] sm:gap-5">
+                        <div key={c.nome} className="grid w-full max-w-3xl grid-cols-1 gap-4 sm:grid-cols-[6fr_5fr] sm:gap-5">
 
                             {/* Foto */}
                             <div className="relative min-h-80 overflow-hidden rounded-2xl bg-[#F9F2EC] p-3 shadow-sm sm:min-h-full sm:p-4">
