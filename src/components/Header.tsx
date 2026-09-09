@@ -133,6 +133,13 @@ export default function Header() {
               ENTREGAS
               <span className="block h-px w-0 bg-[#fba13b] transition-all duration-300 group-hover:w-full" />
             </a>
+            <a
+              href="/artistas"
+              className="group relative flex flex-col items-center gap-0.5 text-[13px] font-medium uppercase tracking-[0.16em] text-[#fba13b] transition-colors duration-200 hover:text-white"
+            >
+              ARTISTAS
+              <span className="block h-px w-0 bg-[#fba13b] transition-all duration-300 group-hover:w-full" />
+            </a>
 
             {/* SERIES — dropdown */}
            {/*  <div ref={seriesRef} className="relative">
@@ -325,6 +332,15 @@ export default function Header() {
                 className="block rounded-xl px-4 py-2.5 text-[11px] font-medium uppercase tracking-[0.16em] text-[#D9BC9A] transition-colors duration-200 hover:text-white hover:bg-white/5"
               >
                 ENTREGAS
+              </a>
+            </li>
+            <li>
+              <a
+                href="/artistas"
+                onClick={() => setMenuOpen(false)}
+                className="block rounded-xl px-4 py-2.5 text-[11px] font-medium uppercase tracking-[0.16em] text-[#D9BC9A] transition-colors duration-200 hover:text-white hover:bg-white/5"
+              >
+                ARTISTAS
               </a>
             </li>
           </ul>
