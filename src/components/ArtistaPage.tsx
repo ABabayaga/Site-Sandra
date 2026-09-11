@@ -1,8 +1,74 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { FaExpand, FaTimes } from "react-icons/fa";
 import Header from "./Header";
 import Footer from "./Footer";
+import { useFocusTrap } from "../hooks/useFocusTrap";
+
+const obras = [
+    "/artista/Obra Carpas (1).jpg.jpeg",
+    "/artista/Obra Carpas (2).jpg.jpeg",
+    "/artista/Obra Carpas (3).jpg.jpeg",
+    "/artista/Obra Carpas (4).jpg.jpeg",
+    "/artista/Obra Carpas (5).jpg.jpeg",
+    "/artista/Obra Carpas (6).jpg.jpeg",
+    "/artista/Obra Carpas (7).jpg.jpeg",
+    "/artista/Obra Carpas (8).jpg.jpeg",
+];
+
+function ImagemModal({ src, onClose }: { src: string; onClose: () => void }) {
+    const [visible, setVisible] = useState(false);
+    const containerRef = useFocusTrap<HTMLDivElement>();
+
+    const handleClose = () => {
+        setVisible(false);
+        setTimeout(onClose, 300);
+    };
+
+    useEffect(() => {
+        requestAnimationFrame(() => setVisible(true));
+        const handleKey = (e: KeyboardEvent) => {
+            if (e.key === "Escape") handleClose();
+        };
+        document.addEventListener("keydown", handleKey);
+        document.body.style.overflow = "hidden";
+        return () => {
+            document.removeEventListener("keydown", handleKey);
+            document.body.style.overflow = "";
+        };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    return (
+        <div
+            ref={containerRef}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Imagem ampliada da obra"
+            tabIndex={-1}
+            className={`fixed inset-0 z-50 flex items-center justify-center bg-black/90 transition-opacity duration-300 outline-none ${visible ? "opacity-100" : "opacity-0"}`}
+            onClick={handleClose}
+        >
+            <img
+                src={src}
+                alt="Foto ampliada da obra"
+                className="max-h-[90vh] max-w-[90vw] object-contain drop-shadow-2xl"
+                onClick={(e) => e.stopPropagation()}
+            />
+            <button
+                onClick={handleClose}
+                aria-label="Fechar"
+                className="absolute top-5 right-5 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-white/30 text-white transition-colors hover:bg-white/10"
+            >
+                <FaTimes size={16} />
+            </button>
+        </div>
+    );
+}
 
 export default function ArtistaPage() {
+    const [modalSrc, setModalSrc] = useState<string | null>(null);
+
     return (
         <main>
             <Header />
@@ -54,9 +120,42 @@ export default function ArtistaPage() {
                             </div>
                         </div>
                     </div>
+
+                    {/* Obras */}
+                    <div className="mt-12 sm:mt-16">
+                        <p className="mb-4 text-center text-[10px] tracking-[0.22em] text-[#08284E]/50 sm:mb-6">
+                            OBRAS
+                        </p>
+                        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 md:grid-cols-4">
+                            {obras.map((src) => (
+                                <button
+                                    key={src}
+                                    onClick={() => setModalSrc(src)}
+                                    aria-label="Ampliar foto da obra"
+                                    className="group relative aspect-square overflow-hidden rounded-xl shadow-sm"
+                                    style={{ backgroundColor: "#e7ddcf" }}
+                                >
+                                    <img
+                                        src={src}
+                                        alt=""
+                                        loading="lazy"
+                                        className="absolute inset-0 h-full w-full object-cover"
+                                    />
+                                    <div className="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/20" />
+                                    <div className="absolute top-2 right-2 flex h-8 w-8 items-center justify-center rounded-full border border-white/30 bg-black/40 text-white opacity-0 backdrop-blur-[10px] transition-opacity duration-300 group-hover:opacity-100">
+                                        <FaExpand size={12} />
+                                    </div>
+                                </button>
+                            ))}
+                        </div>
+                    </div>
                 </div>
             </section>
             <Footer />
+
+            {modalSrc !== null && (
+                <ImagemModal src={modalSrc} onClose={() => setModalSrc(null)} />
+            )}
         </main>
     );
 }
