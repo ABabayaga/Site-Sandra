@@ -2,7 +2,7 @@ import React from "react";
 
 export const WhatsAppButton: React.FC = () => {
     return (
-        <div className="fixed right-3 top-1/2 -translate-y-1/2 z-9999 animate-gentle-pulse">
+        <div className="fixed right-3 top-1/2 -translate-y-1/2 z-40 animate-gentle-pulse">
             <div className="relative w-9 h-9 sm:w-12 sm:h-12">
                 <span className="absolute bottom-full right-2 mb-3 whitespace-nowrap rounded-full bg-blue-950 px-3 py-1.5 text-[11px] sm:text-xs font-poppins text-white shadow-lg shadow-black/15 ring-1 ring-black/5">
                     Agende sua visita

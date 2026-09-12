@@ -114,7 +114,7 @@ export default function ArtistaPage() {
                                 <p className="mb-2 text-xs font-medium text-gray-500 sm:text-sm">
                                     Áudio referente à obra em vídeo
                                 </p>
-                                <audio controls className="w-full" src="/artista/audio.mpeg">
+                                <audio controls className="w-full" src="/artista/audio2.mpeg">
                                     Seu navegador não suporta reprodução de áudio.
                                 </audio>
                             </div>
