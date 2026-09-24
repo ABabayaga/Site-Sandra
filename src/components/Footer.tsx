@@ -1,8 +1,8 @@
 export default function Footer() {
     return (
         <footer id="contato">
-            <div className="bg-[#08284E] px-4 py-2 sm:px-6 sm:py-4">
-                <div className="mx-auto grid max-w-5xl grid-cols-1 gap-2 items-stretch sm:grid-cols-3 sm:gap-8 border-t border-b border-white/30">
+            <div className="bg-[#08284E] px-4 pt-2 pb-1.5 sm:px-6 sm:pt-4 sm:pb-2">
+                <div className="mx-auto grid max-w-5xl grid-cols-1 gap-2 items-stretch sm:grid-cols-3 sm:gap-8 lg:max-w-6xl lg:grid-cols-[1fr_auto_1fr_1fr] border-t border-b border-white/30">
 
                     {/* Col 1 — Logo + Nome */}
                     <div className="flex flex-col items-center justify-center gap-0 px-6 py-1 sm:py-3">
@@ -44,18 +44,35 @@ export default function Footer() {
                     </div>
 
                     {/* Col 3 — BR7 */}
-                    <div className="flex flex-col items-center justify-center gap-1 px-6 py-1 sm:gap-2 sm:py-3">
-                        <p className="text-white text-xs font-semibold">Uma criação de</p>
+                    <div className="flex flex-col items-center justify-center gap-1 px-6 py-1 sm:justify-start sm:gap-2 sm:py-3">
+                        <p className="text-white text-sm font-semibold">Uma criação de</p>
                         <a
                             href="https://www.instagram.com/br7.mkt_/"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <img src="/br7.png" alt="BR7 Marketing em Movimento" loading="lazy" className="h-9 sm:h-16" />
+                            <img src="/br7.png" alt="BR7 Marketing em Movimento" loading="lazy" className="h-auto w-28 sm:w-52" />
+                        </a>
+                    </div>
+
+                    {/* Col 4 — Consultoria Empresarial */}
+                    <div className="flex flex-col items-center justify-center gap-1 px-6 py-1 sm:col-span-3 sm:gap-2 sm:py-3 lg:col-span-1 lg:justify-start">
+                        <p className="text-white text-sm font-semibold">Consultoria Empresarial</p>
+                        <a
+                            href="https://www.instagram.com/gustavosoares.ceo/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <img src="/marca-ellevu-horizontal-branca.svg" alt="Ellevu" loading="lazy" className="h-9 sm:h-16" />
                         </a>
                     </div>
 
                 </div>
+
+                {/* Copyright */}
+                <p className="mx-auto mt-1.5 max-w-5xl text-center text-[9px] uppercase tracking-[0.16em] text-white/50 sm:mt-2 sm:text-[10px] sm:tracking-[0.2em] lg:max-w-6xl">
+                    © {new Date().getFullYear()} Galeria Sandra Novas. Todos os direitos reservados.
+                </p>
             </div>
 
             {/* Bottom bar */}
